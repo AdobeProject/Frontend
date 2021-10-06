@@ -1,0 +1,9 @@
+.main {
+  display: flex;
+}
+
+.main-content {
+  height: 1000px;
+  background-color: red;
+  flex: 3;
+}
