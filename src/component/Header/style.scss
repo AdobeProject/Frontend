@@ -75,8 +75,14 @@
     justify-content: center;
     align-items: center;
 
-    button {
+    .login-btn{
+      border: 2px solid rgb(250,15,0);
+      border-radius: 9px;
+      background-color: rgb(250,15,0);
+      color: white;
       height: 35px;
+    } & :hover{
+      border: 2px solid rgba(0, 0, 0, 0.5);
     }
   }
 }

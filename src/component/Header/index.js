@@ -2,6 +2,10 @@ import "./style.scss";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import PopupMenu from ".//PopupMenu";
+import Popup from "../LoginRegistry/Popup";
+import { useState } from "react";
+import LoginRegistry from "../LoginRegistry/LoginRegistry";
+
 
 const categories = [
   {
@@ -31,6 +35,7 @@ const categories = [
 ];
 
 function Header() {
+  const [buttonPopup, setButtonPopup] = useState(false)
   return (
     <div className="header">
       <div className="header-logo">
@@ -48,14 +53,17 @@ function Header() {
         <p className="category-menu">Courses</p>
       </div>
       <div className="header-btns">
-        <Button variant="outlined" color="primary">
+        <Button className="login-btn" onClick ={()=> setButtonPopup(true)}>
           Sign In
         </Button>
       </div>
+      <Popup trigger = {buttonPopup} setTrigger = {setButtonPopup}>
+              <LoginRegistry />
+            </Popup>
       <div></div>
       <div></div>
     </div>
   );
 }
 
-export default Header;
+export default Header

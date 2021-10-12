@@ -16,7 +16,7 @@ function App() {
   console.log(reduxstate);
   return (
     <div className="App">
-      <Header />
+      <Header />       
       <Router>
         <Switch>
           <Route path="/:catTitle">
