@@ -1,0 +1,21 @@
+.course-main {
+  width: 200px;
+  padding: 10px 3px;
+
+  .course-img {
+    height: 120px;
+  }
+
+  .course-title {
+    text-align: left;
+  }
+
+  .course-author {
+    text-align: left;
+  }
+
+  .course-date {
+    text-align: right;
+    opacity: 0.5;
+  }
+}

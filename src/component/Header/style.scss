@@ -1,0 +1,82 @@
+.header {
+  height: 90px;
+  border-bottom: 1px solid gray;
+  display: flex;
+
+  .header-logo {
+    flex: 1;
+
+    .logo {
+      height: 100px;
+    }
+  }
+  .header-menu {
+    display: flex;
+    flex: 1;
+    text-align: left;
+    align-items: flex-end;
+
+    .popup-menu {
+      position: absolute;
+      background-color: grey;
+      opacity: 0.9;
+      z-index: 999;
+      width: 130px;
+      display: none;
+
+      div {
+        cursor: pointer;
+        position: relative;
+
+        .sub-popup-menu {
+          background-color: grey;
+          opacity: 0.9;
+          position: absolute;
+          left: 125px;
+          top: 0;
+          display: none;
+          z-index: 9999;
+
+          p {
+            color: white;
+
+            &:hover {
+              color: red;
+            }
+          }
+
+          &:hover {
+            display: block;
+          }
+        }
+
+        &:hover {
+          color: blue;
+
+          .sub-popup-menu {
+            display: block;
+          }
+        }
+      }
+    }
+    &:hover {
+      .popup-menu {
+        display: block;
+      }
+    }
+
+    p {
+      margin: 5px;
+    }
+  }
+  .header-btns {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      height: 35px;
+    }
+  }
+}
