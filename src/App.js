@@ -1,11 +1,12 @@
 import "./App.css";
-import Header from "./component/Header";
+import Header from "./component/Header/Header";
 import Footer from "./component/Footer";
 import Main from "./component/Main";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./store/actions/main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Courses from "./component/Courses/Courses";
+import UserPage from "./component/UserPage/UserPage";
 
 function App() {
   const reduxstate = useSelector((state) => state.mainReducer.person);
@@ -16,13 +17,16 @@ function App() {
   console.log(reduxstate);
   return (
     <div className="App">
-      <Header />       
       <Router>
+        <Header />
         <Switch>
-          <Route path="/:catTitle">
+          <Route path="/UserPage" exact>
+            <UserPage />
+          </Route>
+          <Route path="/:catTitle" exact>
             <Courses />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <Main />
           </Route>
         </Switch>
