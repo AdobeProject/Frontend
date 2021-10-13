@@ -9,18 +9,16 @@ import Courses from "./component/Courses/Courses";
 import UserPage from "./component/UserPage/UserPage";
 
 function App() {
-  const reduxstate = useSelector((state) => state.mainReducer.person);
   const dispatch = useDispatch();
   const getData = () => {
     dispatch(getUser());
   };
-  console.log(reduxstate);
   return (
     <div className="App">
       <Router>
         <Header />
         <Switch>
-          <Route path="/UserPage" exact>
+          <Route path="/userpage" exact>
             <UserPage />
           </Route>
           <Route path="/:catTitle" exact>

@@ -1,7 +1,5 @@
-import { Link } from "@mui/material";
 import React, { useState } from "react";
-import "./LoginRegistry.css";
-import UserPage from "../UserPage/UserPage";
+import "./LoginRegistry.scss";
 
 const LoginRegistry = () => {
   const [addclass, setaddclass] = useState("");
@@ -15,14 +13,22 @@ const LoginRegistry = () => {
           <input type="email" placeholder="EMAIL" />
           <input type="password" placeholder="PASSWORD" />
           <label className="radio-box">
-            <input type="radio" name="user" value="1" className="radio_input" checked />
+            <input
+              type="radio"
+              name="user"
+              value="1"
+              className="radio_input"
+              checked
+            />
             I want to learn
           </label>
           <label className="radio-box">
             <input type="radio" name="user" value="2" className="radio_input" />
             I want to teach
           </label>
-          <button type="submit" className="register-botton">REGISTER</button>
+          <button type="submit" className="register-botton">
+            REGISTER
+          </button>
         </form>
       </div>
       <div className="form-container sign-in-container">
@@ -30,7 +36,9 @@ const LoginRegistry = () => {
           <h1>Login</h1>
           <input type="email" placeholder="EMAIL" />
           <input type="password" placeholder="PASSWORD" />
-          <button type="submit" className="register-botton">LOGIN</button>
+          <button type="submit" className="register-botton">
+            LOGIN
+          </button>
         </form>
       </div>
       <div className="overlay-container">

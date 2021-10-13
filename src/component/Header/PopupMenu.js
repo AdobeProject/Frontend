@@ -1,18 +1,15 @@
 import SubPopupMenu from "./SubPopupMenu";
+import { Link } from "react-router-dom";
 
 function PopupMenu({ list }) {
   return (
     <div className="popup-menu">
       {list.map((item) => (
         <div>
-          <p> {item.title} </p>
-          <SubPopupMenu
-            list={[
-              { title: "111111111" },
-              { title: "22222222222" },
-              { title: "333333333333" },
-            ]}
-          />
+          <Link to={`/${item.title}`}>
+            <p> {item.title} </p>
+          </Link>
+          <SubPopupMenu list={item.subCategories} />
         </div>
       ))}
     </div>

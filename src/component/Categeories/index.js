@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import CategoryCard from "./CategoeryCard";
 import "./style.scss";
 
-const categories = [
+const catego = [
   {
     title: "Development",
     img: "",
@@ -31,11 +32,12 @@ const categories = [
 ];
 
 function Categories() {
+  const categories = useSelector((state) => state.categoriesReducer.categories);
+  console.log(categories, "");
   return (
     <div className="main-catgeories">
-      {categories.map((category) => (
-        <CategoryCard category={category} />
-      ))}
+      {categories &&
+        categories.map((category) => <CategoryCard category={category} />)}
     </div>
   );
 }
