@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "./component/Header/Header";
-import Footer from "./component/Footer";
 import Main from "./component/Main";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./store/actions/main";
@@ -18,7 +17,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route path="/userpage" exact>
+          <Route path="/UserPage" exact>
             <UserPage />
           </Route>
           <Route path="/:catTitle" exact>

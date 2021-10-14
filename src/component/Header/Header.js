@@ -27,7 +27,7 @@ function Header() {
         </div>
       </div>
       <div className="header-btns">
-        <Link pathname>
+        <Link to="/UserPage">
           <p>userName</p>
         </Link>
         <Button className="login-btn" onClick={() => setButtonPopup(true)}>
