@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-function SubPopupMenu({ list }) {
+function SubPopupMenu({ category }) {
   return (
     <div className="sub-popup-menu">
-      {list.map((item) => (
-        <Link to={`/${item}`}>
-          <p>{item}</p>
+      {category.subCategories.map((item) => (
+        <Link to={`/${category.title}/${item.id}`}>
+          <p key={item.id}>{item.title}</p>
         </Link>
       ))}
     </div>

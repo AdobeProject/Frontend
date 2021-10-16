@@ -4,7 +4,7 @@ import CourseCard from "./CourseCard";
 import "./style.scss";
 
 function Courses() {
-  let { catTitle } = useParams();
+  let { catTitle, subCaTitle } = useParams();
 
   return (
     <div className="courses-page">

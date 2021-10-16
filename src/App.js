@@ -6,6 +6,9 @@ import { getUser } from "./store/actions/main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Courses from "./component/Courses/Courses";
 import UserPage from "./component/UserPage/UserPage";
+import CoursePage from "./component/CoursePage";
+import TeacherCoursesPage from "./component/TeacherCoursesPage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -20,9 +23,19 @@ function App() {
           <Route path="/UserPage" exact>
             <UserPage />
           </Route>
+         <Route path="/course" exact>
+            <CoursePage />
+          </Route>
+          <Route path="/teacher" exact>
+            <TeacherCoursesPage />
+          </Route>
           <Route path="/:catTitle" exact>
             <Courses />
           </Route>
+          <Route path="/:catTitle/:subCaTitle" exact>
+            <Courses />
+          </Route>
+
           <Route path="/" exact>
             <Main />
           </Route>

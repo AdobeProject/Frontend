@@ -19,8 +19,8 @@
 
     .popup-menu {
       position: absolute;
-      background-color: grey;
-      opacity: 0.9;
+      background-color: rgb(214, 214, 214);
+      opacity: 0.8;
       z-index: 999;
       width: 130px;
       display: none;
@@ -30,8 +30,8 @@
         position: relative;
 
         .sub-popup-menu {
-          background-color: grey;
-          opacity: 0.9;
+          background-color: rgb(214, 214, 214);;
+          opacity: 0.8;
           position: absolute;
           left: 125px;
           top: 0;
@@ -39,7 +39,7 @@
           z-index: 9999;
 
           p {
-            color: white;
+            color: blue;
 
             &:hover {
               color: red;
@@ -52,11 +52,21 @@
         }
 
         &:hover {
-          color: blue;
 
           .sub-popup-menu {
             display: block;
           }
+        }
+
+        a{
+          color: black;
+
+          p{
+            &:hover {
+              color: red;
+            }
+          }
+
         }
       }
     }
