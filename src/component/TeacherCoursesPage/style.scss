@@ -1,0 +1,26 @@
+.teacher-page {
+    display: flex;
+
+    .account-info{
+        padding-top: 20px;
+        flex:1;
+        border-right: 1px solid black;
+
+        img{
+            height: 150px;
+            width: 150px;
+            border: 1px solid gray;
+        
+            border-radius: 50%;
+
+        }
+
+    }
+  
+    .teacher-courses{
+      flex: 4;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+}

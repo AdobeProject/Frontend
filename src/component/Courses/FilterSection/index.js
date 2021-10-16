@@ -9,36 +9,13 @@ import Avatar from "@mui/material/Avatar";
 
 import "./style.scss";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 
-const categories = [
-  {
-    title: "Development",
-    img: "",
-  },
-  {
-    title: "Design",
-    img: "",
-  },
-  {
-    title: "Marketing",
-    img: "",
-  },
-  {
-    title: "Language",
-    img: "",
-  },
-  {
-    title: "Music",
-    img: "",
-  },
-  {
-    title: "Busines",
-    img: "",
-  },
-];
 
 function FilterSection() {
   let { catTitle } = useParams();
+  const categories = useSelector((state) => state.categoriesReducer.categories);
+
 
   const [checked, setChecked] = React.useState([]);
 
@@ -61,26 +38,25 @@ function FilterSection() {
     <div className="filter-section">
       <List
         dense
-        sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+        sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" , }}
       >
-        {categories.map((category) => {
-          const labelId = `checkbox-list-secondary-label-${category.title}`;
+        {categories[0].subCategories.map((item) => {
+          const labelId = `checkbox-list-secondary-label-${item.title}`;
           return (
             <ListItem
-              onClick={handleToggle(category)}
-              s
-              key={category.title}
+              onClick={handleToggle(item)}
+              key={item.title}
               secondaryAction={
                 <Checkbox
                   edge="end"
-                  checked={checked.indexOf(category) !== -1}
+                  checked={checked.indexOf(item) !== -1}
                   inputProps={{ "aria-labelledby": labelId }}
                 />
               }
               disablePadding
             >
               <ListItemButton>
-                <ListItemText id={labelId} primary={`${category.title}`} />
+                <ListItemText id={labelId} primary={`${item.title}`} />
               </ListItemButton>
             </ListItem>
           );
