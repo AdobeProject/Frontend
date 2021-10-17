@@ -13,7 +13,7 @@ import TeacherCoursesPage from "./component/TeacherCoursesPage";
 function App() {
   const dispatch = useDispatch();
   const getData = () => {
-    dispatch(getUser());
+    dispatch(getUser().then);
   };
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App() {
           <Route path="/UserPage" exact>
             <UserPage />
           </Route>
-         <Route path="/course" exact>
+          <Route path="/course" exact>
             <CoursePage />
           </Route>
           <Route path="/teacher" exact>
