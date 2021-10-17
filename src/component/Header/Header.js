@@ -19,21 +19,21 @@ function Header() {
   const categories = useSelector((state) => state.categoriesReducer.categories);
 
 
-    useEffect(() => {
-        console.log(registerRef,'22');
-        function handleClickOutside(event) {
-            if (wrapperRef.current && !wrapperRef.current.contains(event.target) && !registerRef.current.contains(event.target)) {
-              setButtonPopup(false)
-            }
-        }
+  useEffect(() => {
+    console.log(registerRef, '22');
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target) && !registerRef.current.contains(event.target)) {
+        setButtonPopup(false)
+      }
+    }
 
-        // Bind the event listener
-        document.addEventListener("click", handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener("click", handleClickOutside);
-        };
-    }, [wrapperRef,registerRef]);
+    // Bind the event listener
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [wrapperRef, registerRef]);
 
 
   return (
@@ -45,27 +45,39 @@ function Header() {
       </div>
       <div className="header-menu">
         <div>
-          <p className="category-menu">Collections</p>
+          <p className="CategoryMenu">Collections</p>
           <PopupMenu categories={categories} />
+        </div>
+        <div>
+          <Link to="/UserPage">
+            <p>About</p>
+          </Link>
+        </div>
+        <div>
+          <Link to="/UserPage">
+            <p>Contact Us</p>
+          </Link>
+        </div>
+        <div>
+          <Link to="/UserPage">
+            <p>Username</p>
+          </Link>
         </div>
       </div>
       <div className="header-btns">
-        <Link to="/UserPage">
-          <p>userName</p>
-        </Link>
         <Button className="login-btn" ref={registerRef} onClick={() => setButtonPopup(true)}>
-          Sign In
+          Sign In / Sign Up
         </Button>
       </div>
       <div>
-      { buttonPopup &&
-                <div  className="popup">
-                <div ref={wrapperRef} className="popup-inner">
-                <LoginRegistry  />
-          
-                </div>
-              </div>
-      }
+        {buttonPopup &&
+          <div className="popup">
+            <div ref={wrapperRef} className="popup-inner">
+              <LoginRegistry />
+
+            </div>
+          </div>
+        }
       </div>
 
 
