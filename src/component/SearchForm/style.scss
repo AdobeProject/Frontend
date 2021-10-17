@@ -1,0 +1,18 @@
+.search {
+  display: flex;
+  padding: 15px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  input {
+    width: 80%;
+    height: 40px;
+    background-color: white;
+  }
+
+  button {
+    height: 40px;
+    margin-left: 20px;
+    background-color: white;
+  }
+}

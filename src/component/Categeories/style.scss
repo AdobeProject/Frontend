@@ -1,0 +1,23 @@
+.main-catgeories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 10px;
+  overflow: hidden;
+
+  .categori-card {
+    max-width: 250px;
+
+    .category-img {
+      width: 250px;
+      height: 250px;
+      background-size: contain;
+
+      &:hover{
+        transform: scale(1.1);
+        transition: .3s;
+
+      }
+    }
+  }
+}

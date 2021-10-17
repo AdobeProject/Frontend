@@ -1,0 +1,34 @@
+.courses-page {
+  display: flex;
+
+  .courses-contenet {
+    flex: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-left: 1px solid gray;
+
+  }
+}
+
+.course-main {
+  width: 250px;
+  padding: 15px;
+
+  .course-img {
+    height: 120px;
+  }
+
+  .course-title {
+    text-align: left;
+  }
+
+  .course-author {
+    text-align: left;
+  }
+
+  .course-date {
+    text-align: right;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,47 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 90px);
+  justify-content: space-around ;
+
+  .courses-list {
+    color: #EEEEEE;
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+
+    .courses-title {
+      text-align: left;
+    }
+    a{
+      background-color: #fff;
+      &:hover {
+        transform: scale(1.03);
+        transition: .3s;
+      }
+    }
+  }
+
+  .title {
+    background-color: #ff5e52;
+    font-weight: 700;
+    text-align: left;
+    color: #fff;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+      p{
+        margin: auto;
+        margin-left: 15px;
+        font-size: 20px;
+
+    }
+  }
+
+  .popup-center {
+    justify-content: center;
+    align-items: center;
+  }
+}
