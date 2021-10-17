@@ -8,16 +8,19 @@ import { useState } from 'react';
 function UserPage() {
     // const [surname, setSurname] = useState('user.surname')
     const [EditButton, SetEditButton] = useState(false);
+    const [Name, SetName] = useState('user.name');
+    const [Surname, SetSurname] = useState('user.surname')
+    const [UserPhoto, SetUserPhoto] = useState("https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png")
     return (
         <div className="bigDiv">
             <EditDetails trigger={EditButton} setTrigger={SetEditButton} />
             <div className="myProfile">
                 <img onClick={() => SetEditButton(true)} title="Edit" className="editBtn" src={edit} />
-                <img className="userPhoto" src="https://w7.pngwing.com/pngs/340/956/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper.png" />
+                <img className="userPhoto" src={UserPhoto} />
                 <input className="edit" multiple type="file" />
-                <div className="info">
-                    <p>name</p>
-                    <p>surname</p>
+                <div className="userPageInfo">
+                    <p>{Name}</p>
+                    <p>{Surname}</p>
                     <p>Email: email@example.com</p>
                     <p>Watched Lessons {"\n"} 0</p>
                 </div>

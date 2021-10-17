@@ -15,7 +15,7 @@
     border-right: solid black 1px;
 }
 
-.info {
+.userPageInfo {
     font-style: unset;
     font-size: 30px;
     color: rgb(250,15,0);
@@ -32,10 +32,10 @@
 }
 
 .userPhoto {
-			height: 150px;
-			margin-top: 50px;
-            box-sizing: border-box;
-            border: 5px double rgb(250,15,0);
+		height: 160px;
+		margin-top: 50px;
+        box-sizing: border-box;
+        border: 5px double rgb(250,15,0);
 		}
 
 .edit {

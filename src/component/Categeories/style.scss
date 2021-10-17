@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   padding-top: 10px;
-  border-top: 1px solid grey;
+  overflow: hidden;
 
   .categori-card {
     max-width: 250px;
@@ -12,6 +12,12 @@
       width: 250px;
       height: 250px;
       background-size: contain;
+
+      &:hover{
+        transform: scale(1.1);
+        transition: .3s;
+
+      }
     }
   }
 }

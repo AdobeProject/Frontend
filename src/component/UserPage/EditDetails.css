@@ -17,8 +17,7 @@
     flex-direction: column;
     position: relative;
     padding: 32px;
-    width: 60%;
-    height: 70%;
+    width: 40%;
     background-color: #fff;
     border-radius: 20px;
     align-items: center;
@@ -41,8 +40,9 @@
 }
 
 .deleteBtn {
-    margin-right: 57.5%;
-    margin-top: 100px;
+    width: 80%;
+    text-align: left;
+    margin-top: 2vw;
     cursor: pointer;
     font-size: 20px;
 }
@@ -52,10 +52,9 @@
 }
 
 .saveBtn {
-    margin-left: 93%;
-    margin-top: 5%;
+    width: 80%;
+    text-align: center;
     height: 50px;
-    width: 70px;
     border-radius: 15px;
     border: none;
     font-weight: bold;
@@ -67,11 +66,14 @@
 
 .innerDetails input {
     margin-top: 20px;
-    width: 70%;
+    width: 80%;
+    border: 1px solid #ADADAD;
 }
 
 .picText {
-    margin-right: 57.5%;
-    margin-bottom: 0;
-    margin-top: 10px;
+    width: 80%;
+    text-align: left;
+    margin: 0;
+    margin-top: 1vw;
+    margin-bottom: -1vw;
 }
