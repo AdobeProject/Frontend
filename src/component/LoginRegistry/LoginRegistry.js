@@ -3,15 +3,20 @@ import "./LoginRegistry.scss";
 
 const LoginRegistry = () => {
   const [addclass, setaddclass] = useState("");
+  const [name, setName] = useState("");
+  const [surname, SetSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+
   return (
     <div className={`container ${addclass}`} id="container">
       <div className="form-container  sign-up-container">
         <form>
           <h1>Create Account</h1>
-          <input type="text" placeholder="NAME" />
-          <input type="text" placeholder="SURNAME" />
-          <input type="email" placeholder="EMAIL" />
-          <input type="password" placeholder="PASSWORD" />
+          <input type="text" placeholder="NAME" value={name} onChange={(e)=>setName(e.target.value)} />
+          <input type="text" placeholder="SURNAME" value={surname} onChange={(e)=>SetSurname(e.target.value)} />
+          <input type="email" placeholder="EMAIL" value={email} onChange={(e)=>setEmail(e.target.value)} />
+          <input type="password" placeholder="PASSWORD" value ={password} onChange={(e) => setPassword(e.target.value)} />
           <label className="radio-box">
             <input
               type="radio"
@@ -34,8 +39,8 @@ const LoginRegistry = () => {
       <div className="form-container sign-in-container">
         <form>
           <h1>Login</h1>
-          <input type="email" placeholder="EMAIL" />
-          <input type="password" placeholder="PASSWORD" />
+          <input type="email" placeholder="EMAIL" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+          <input type="password" placeholder="PASSWORD" value ={password} onChange={(e) => setPassword(e.target.value)}/>
           <button type="submit" className="register-botton">
             LOGIN
           </button>

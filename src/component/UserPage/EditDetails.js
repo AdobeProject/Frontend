@@ -17,7 +17,7 @@ function EditDetails(props) {
                 <input type="password" placeholder="CHANGE PASSWORD" />
                 <input type="password" placeholder="CONFIRM NEW PASSWORD" />
                 <label for="pic" className="picText">Change Profile Picture:</label>
-                <input multiple type="file" name="pic"/>
+                <input type="file" name="pic" />
                 <p onClick={()=>SetDelAcc(true)} className="deleteBtn" type="reset" >Delete Account</p>
                 <button className="saveBtn" type="submit">Save</button>
 
