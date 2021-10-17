@@ -12,7 +12,6 @@
     height: 100%;
     width: 400px;
     box-sizing: border-box;
-    border-right: solid black 1px;
 }
 
 .userPageInfo {
@@ -96,4 +95,40 @@
 
 .dot:hover {
     background-color: rgb(250,15,0);
+}
+
+.add-course{
+    padding: 20px;
+
+    .course-title{
+        &::after{
+            border-bottom-color: red ;
+        }
+    }
+    
+    .course-description{
+    
+        width: 100%;
+        margin: 20px 0;
+        border: none;
+
+        &:focus{
+            border: 1px solid red;
+            outline-color: red;
+        }
+    }
+
+    .img-upload{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .selectors{
+        float: left;
+
+        select{
+            margin-right: 10px;
+        }
+    }
+
 }

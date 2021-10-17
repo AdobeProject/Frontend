@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SuggestedCourssesSection from "./SuggestedCoursesSection/SuggestedCourseSection";
 
 import "./CoursePage.scss"
+import ReactPlayer from "react-player";
 
 function CoursePage() {
     return (
@@ -15,16 +16,16 @@ function CoursePage() {
                     <p className="courseCategory">Course category</p>
                 </div>
                 <Link to="/teacher">
-                <div className="teacherAcc">
-                    <img className="teacherProfPic" src="https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png" />
-                    <p className="teacherName">Teacher.username</p>
-                </div>
+                    <div className="teacherAcc">
+                        <img className="teacherProfPic" src="https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png" />
+                        <p className="teacherName">Teacher.username</p>
+                    </div>
                 </Link>
             </div>
             <div className="courseContainer">
                 <div className="videoQuizesContainer">
                     <div className="videoContainer">
-                        <iframe className="videoPlayer" width="660" height="415" src="https://www.youtube.com/embed/ElaIKk8ba5g?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <ReactPlayer url={'https://youtu.be/XzLuMtDelGk'} controls={true} />
                     </div>
                     <div className="discriptionContainer">
                         <p>This course is the most up-to-date, comprehensive and bestselling React course!

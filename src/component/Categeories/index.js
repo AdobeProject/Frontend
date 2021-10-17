@@ -14,9 +14,12 @@ function Categories() {
       {categories &&
         categories.map((category) => {
           return (
-              <Link to={`${category.title}`} key={category.title}>
-                <CategoryCard category={category} />
-              </Link>
+            <Link to={`${category.title}`} key={category.title}>
+              <CategoryCard category={category} />
+              <CategoryCard category={category} />
+
+            </Link>
+
           )
         })}
     </div>
