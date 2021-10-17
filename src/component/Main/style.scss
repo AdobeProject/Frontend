@@ -1,22 +1,43 @@
 .main {
   display: flex;
   flex-direction: column;
+  height: calc(100% - 90px);
+  justify-content: space-around ;
 
   .courses-list {
+    color: #EEEEEE;
     display: flex;
+    padding: 20px;
     justify-content: space-around;
-    border-top: 1px solid gray;
 
     .courses-title {
       text-align: left;
     }
+    a{
+      background-color: #fff;
+      &:hover {
+        transform: scale(1.03);
+        transition: .3s;
+      }
+    }
   }
 
   .title {
-    font-size: 25px;
+    background-color: #ff5e52;
     font-weight: 700;
     text-align: left;
-    padding: 10px 0;
+    color: #fff;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+      p{
+        margin: auto;
+        margin-left: 15px;
+        font-size: 20px;
+
+    }
   }
 
   .popup-center {

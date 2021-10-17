@@ -2,12 +2,14 @@
   height: 90px;
   border-bottom: 1px solid gray;
   display: flex;
+  background: linear-gradient(#cb2d3e, #ef473a);
+  color: white;
 
-  .header-logo {
+  .header-logo {  
     flex: 1;
 
     .logo {
-      height: 80px;
+      height: 90px;
       margin-right: 200px;
     }
   }
@@ -15,7 +17,8 @@
     display: flex;
     flex: 1;
     text-align: left;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-around;
 
     .popup-menu {
       position: absolute;
@@ -78,6 +81,7 @@
 
     p {
       margin: 5px;
+      color: white;
     }
   }
   .header-btns {
@@ -87,13 +91,12 @@
     align-items: center;
 
     .login-btn{
-      border: 2px solid rgb(250,15,0);
+      border: 2px solid white;
       border-radius: 9px;
-      background-color: rgb(250,15,0);
-      color: white;
+      background-color: white;
+      color: rgb(250,15,0);
       height: 35px;
       margin-left: 200px;
-      margin-bottom: 3%;
     } 
   }
 }
@@ -101,4 +104,11 @@
 .user-profile:hover {
   cursor: pointer;
   outline: none;
+}
+
+.CategoryMenu{
+  color: white;
+   &:hover {
+    cursor: default;
+  }
 }

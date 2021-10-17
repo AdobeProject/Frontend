@@ -10,61 +10,26 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import Button from "@material-ui/core/Button";
 import { Input } from "@mui/material";
 
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-
-};
-
-
+import EditDetails from './EditDetails'
 
 function UserPage() {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const [coverImage, setCoverImage] = useState("");
-    const [name, setName] = useState("name");
-    const [surname, setSurname] = useState("surname");
-
-
-
-    const coverImgUpload = (e) => {
-        const imgFormat = e.target.files[0].type.split("/").pop();
-        setCoverImage(imgFormat);
-
-    };
-
-    const coverImageContainer = (img) => {
-        if (coverImage.length > 1) {
-            return (
-                <span>
-                    <IconButton onClick={() => setCoverImage("")} aria-label="delete" >
-                        <DeleteIcon />
-                    </IconButton>
-                    <img width="300" src={coverImage} alt="" />
-                </span>
-            );
-        }
-    };
-
+    // const [surname, setSurname] = useState('user.surname')
+    const [EditButton, SetEditButton] = useState(false);
+    const [Name, SetName] = useState('user.name');
+    const [Surname, SetSurname] = useState('user.surname')
+    const [UserPhoto, SetUserPhoto] = useState("https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png")
     return (
         <div className="bigDiv">
+            <EditDetails trigger={EditButton} setTrigger={SetEditButton} />
             <div className="myProfile">
-                <img className="editBtn" onClick={handleOpen} src={edit} />
-                <img className="userPhoto" src="https://w7.pngwing.com/pngs/340/956/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper.png" />
-                <button>Upload</button>
-                <div className="info">
-                    <p>user.name user.surname</p>
+                <img onClick={() => SetEditButton(true)} title="Edit" className="editBtn" src={edit} />
+                <img className="userPhoto" src={UserPhoto} />
+                <input className="edit" multiple type="file" />
+                <div className="userPageInfo">
+                    <p>{Name}</p>
+                    <p>{Surname}</p>
                     <p>Email: email@example.com</p>
-                    <p>What I am learning</p>
+                    <p>Watched Lessons {"\n"} 0</p>
                 </div>
             </div>
             <div className="coursesContainer">
@@ -78,10 +43,16 @@ function UserPage() {
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
                     </div>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
                 </div>
             </div>
-            <Modal
+            {/* <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -116,7 +87,7 @@ function UserPage() {
                     </div>
 
                 </Box>
-            </Modal>
+            </Modal> */}
 
         </div>
     );

@@ -13,24 +13,32 @@ function Main() {
     <div className="main">
       <div className="main-content"></div>
       <SearchForm />
-      <div className="title">Categories</div>
+      <div className="title">
+        <p>
+          Most Popular Categories
+        </p>
+      </div>
       <Categories />
-      <div className="title">Last Courses</div>
+      <div className="title">
+        <p>
+          Last Courses
+        </p>
+      </div>
       <div className="courses-list">
-       <Link to='course'>
-                      <CourseCard />
-        </Link>  
-             <Link to='course'>
-                      <CourseCard />
-        </Link>    
-           <Link to='course'>
-                      <CourseCard />
-        </Link>    
-           <Link to='course'>
-                      <CourseCard />
-        </Link>  
-             <Link to='course'>
-                      <CourseCard />
+        <Link to='course'>
+          <CourseCard />
+        </Link>
+        <Link to='course'>
+          <CourseCard />
+        </Link>
+        <Link to='course'>
+          <CourseCard />
+        </Link>
+        <Link to='course'>
+          <CourseCard />
+        </Link>
+        <Link to='course'>
+          <CourseCard />
         </Link>
       </div>
     </div>

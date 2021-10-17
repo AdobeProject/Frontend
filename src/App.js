@@ -6,7 +6,7 @@ import { getUser } from "./store/actions/main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Courses from "./component/Courses/Courses";
 import UserPage from "./component/UserPage/UserPage";
-import CoursePage from "./component/CoursePage";
+import CoursePage from "./component/CoursePage/CoursePage";
 import TeacherCoursesPage from "./component/TeacherCoursesPage";
 
 
