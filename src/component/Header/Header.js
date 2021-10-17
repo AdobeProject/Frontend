@@ -15,12 +15,15 @@ function Header() {
   const [buttonPopup, setButtonPopup] = useState(false);
   const wrapperRef = useRef(null);
   const registerRef = useRef(null);
-
+  const [isUser, setIsUser] = useState(false);
   const categories = useSelector((state) => state.categoriesReducer.categories);
+
+  function handleSignOut() {
+    setIsUser(true)
+  }
 
 
   useEffect(() => {
-    console.log(registerRef, '22');
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target) && !registerRef.current.contains(event.target)) {
         setButtonPopup(false)
@@ -58,16 +61,25 @@ function Header() {
             <p>Contact Us</p>
           </Link>
         </div>
-        <div>
-          <Link to="/UserPage">
-            <p>Username</p>
-          </Link>
-        </div>
       </div>
       <div className="header-btns">
-        <Button className="login-btn" ref={registerRef} onClick={() => setButtonPopup(true)}>
-          Sign In / Sign Up
-        </Button>
+        {isUser ? (
+          <Button className="login-btn" ref={registerRef} onClick={() => setButtonPopup(true)}>
+            Sign In / Sign Up
+          </Button>
+        ) : (
+          <>
+            <div>
+              <Link to="/UserPage">
+                <p className = "userName">Username</p>
+              </Link>
+            </div>
+            <Button className="login-btn" onClick={handleSignOut} >
+              Sign Out
+            </Button>
+          </>
+        )}
+
       </div>
       <div>
         {buttonPopup &&
