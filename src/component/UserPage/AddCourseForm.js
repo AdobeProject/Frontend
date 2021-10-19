@@ -42,12 +42,12 @@ function AddCourseForm() {
 
     return (
         <div className='add-course'>
-
             <Input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
                 fullWidth={true}
+                max="40"
                 className='course-title'
 
             />

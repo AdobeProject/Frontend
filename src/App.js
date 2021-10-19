@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Header from "./component/Header/Header";
 import Main from "./component/Main";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import Courses from "./component/Courses/Courses";
 import UserPage from "./component/UserPage/UserPage";
 import CoursePage from "./component/CoursePage/CoursePage";
 import TeacherCoursesPage from "./component/TeacherCoursesPage";
+import SearchPage from "./component/SearchForm/SearchPage/SearchPage";
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
           <Route path="/course" exact>
             <CoursePage />
           </Route>
+          <Route path="/searchedItems" exact>
+            <SearchPage />
+          </Route>
           <Route path="/teacher" exact>
             <TeacherCoursesPage />
           </Route>
@@ -35,7 +39,7 @@ function App() {
           <Route path="/:catTitle/:subCaTitle" exact>
             <Courses />
           </Route>
-
+          
           <Route path="/" exact>
             <Main />
           </Route>
