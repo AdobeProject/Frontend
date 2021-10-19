@@ -51,16 +51,6 @@ function Header() {
           <p className="CategoryMenu">Collections</p>
           <PopupMenu categories={categories} />
         </div>
-        <div>
-          <Link to="/UserPage">
-            <p>About</p>
-          </Link>
-        </div>
-        <div>
-          <Link to="/UserPage">
-            <p>Contact Us</p>
-          </Link>
-        </div>
       </div>
       <div className="header-btns">
         {isUser ? (
@@ -74,7 +64,7 @@ function Header() {
                 <p className = "userName">Username</p>
               </Link>
             </div>
-            <Button className="login-btn" onClick={handleSignOut} >
+            <Button className="signout-btn" onClick={handleSignOut} >
               Sign Out
             </Button>
           </>

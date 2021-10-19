@@ -17,7 +17,7 @@
 .userPageInfo {
     font-style: unset;
     font-size: 30px;
-    color: rgb(250,15,0);
+    color: black;
 }
 
 .editBtn {
@@ -34,7 +34,7 @@
 		height: 160px;
 		margin-top: 50px;
         box-sizing: border-box;
-        border: 5px double rgb(250,15,0);
+        border: 5px;
 		}
 
 .edit {
@@ -49,30 +49,41 @@
 		position: absolute;
 		font-style: unset;
 		font-size: 40px;
-		color: rgb(250,15,0);
+		color: black;
 		}
 .coursesContainer{
     height: 100%;
-    width: 100%;
+    width: 70%;
     align-items: center;
 }
 .titleCourses 	{
     margin: auto;
     font-weight: bold;
     font-size: 40px;
-    color: rgb(250,15,0);
+    color: white;
     padding: 10px 0;
 }
 .container 	{
-    margin: auto; 
+    margin: auto;
+    margin-top: 50px;
     width: 90%;
     box-sizing: border-box;
-	background-color: rgba(168, 152, 133, 0.2);
-	color: rgb(250,15,0);
+	background: linear-gradient(#e52d27, #b31217);
+	color: black;
 	border-radius: 20px;
     align-items: center;
 }
 
+.add-courses-container{
+    margin: auto;
+    margin-top: 50px;
+    width: 90%;
+    box-sizing: border-box;
+    background-color: white;
+	color: black;
+	border-radius: 20px;
+    align-items: center;
+}
 .courses  {
     margin: 10px 0;
     box-sizing: border-box;

@@ -1,7 +1,7 @@
 import React from "react";
 import EditDetails from "./EditDetails";
 import { useState } from 'react';
-import './DeleteAccPopup/DeleteAccPopup.css'
+import './DeleteAccPopup/DeleteAccPopup.scss'
 import { Link } from "react-router-dom";
 
 function DeleteAccPopup(prop) {

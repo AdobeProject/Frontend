@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import { useState } from "react";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 function SearchForm() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,9 +17,11 @@ function SearchForm() {
         value={searchTerm}
         onChange={handleChange}
       />
-      <Button variant="outlined" color="primary">
-        Search
-      </Button>
+      <Link to ="/searchedItems">
+        <Button variant="outlined" color="primary">
+          Search
+        </Button>
+      </Link>
     </div>
   );
 }

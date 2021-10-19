@@ -1,16 +1,14 @@
 .header {
   height: 90px;
-  border-bottom: 1px solid gray;
   display: flex;
-  background: linear-gradient(#cb2d3e, #ef473a);
+  background: linear-gradient(#e52d27, #b31217);
   color: white;
 
-  .header-logo {  
+  .header-logo {
     flex: 1;
 
     .logo {
       height: 90px;
-      margin-right: 200px;
     }
   }
   .header-menu {
@@ -19,33 +17,30 @@
     text-align: left;
     align-items: center;
 
-
     .popup-menu {
       position: absolute;
-      background-color: rgb(214, 214, 214);
-      opacity: 0.8;
+      background-color: rgba(255, 255, 255, 0.8);
       z-index: 999;
-      width: 130px;
       display: none;
 
       div {
         cursor: pointer;
         position: relative;
+        padding: 0 15px;
 
         .sub-popup-menu {
-          background-color: rgb(214, 214, 214);;
-          opacity: 0.8;
+          background-color: rgba(255, 255, 255, 0.8);
           position: absolute;
-          left: 125px;
+          left: 145px;
           top: 0;
           display: none;
           z-index: 9999;
 
           p {
-            color: blue;
+            color: black;
 
             &:hover {
-              color: red;
+              color: #b31217;
             }
           }
 
@@ -66,7 +61,7 @@
 
           p{
             &:hover {
-              color: red;
+              color: #b31217;
             }
           }
 
@@ -79,15 +74,16 @@
       }
     }
 
-    p {
+    & > div > p {
       margin: 5px;
       color: white;
+      font-size: 20px;
     }
   }
   .header-btns {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     .login-btn{
@@ -97,7 +93,14 @@
       color: rgb(250,15,0);
       height: 35px;
       width: 150px;
-    } 
+    }
+    .signout-btn {
+      border: 2px solid white;
+      border-radius: 9px;
+      background-color: white;
+      color: rgb(250,15,0);
+      height: 35px;
+    }
   }
 }
 
@@ -115,7 +118,6 @@
 
 .userName {
   color: white;
-  border: 1px solid white;
   padding: 5px;
   display: flex;
   height: 40px;
