@@ -14,5 +14,12 @@
     height: 40px;
     margin-left: 20px;
     background-color: white;
+    color: #e52d27;
+    border-color: #e52d27;
+
+    &:hover{
+      border-color: #b31217;
+      background-color: white;
+    }
   }
 }

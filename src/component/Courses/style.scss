@@ -1,118 +1,24 @@
 .courses-page {
   display: flex;
 
-  .courses-contenet {
-    flex: 4;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    border-left: 1px solid gray;
-
-  }
-}
-
-.course-main {
-  width: 100%;
-  padding: 15px;
-  background-color: white;
-  box-sizing: border-box;
-
-  &:hover{
-    transform: scale(1.05);
-    transition: .5s;
-  }
-
-  .course-img {
-    height: auto;
-  }
-
-  p{
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    margin: 2vw 0;
-    font-size: 1.5vw;
-  }
-
-  p:last-child{
-    justify-content: end;
-    margin-bottom: 0;
-    color: #888888;
-  }
-
-  // .course-title {
-  //   text-align: left;
-  //   margin: 2vw 0;
-  //   font-size: 1.5vw;
-  // }
-
-  // .course-author {
-  //   text-align: left;
-  //   margin: 2vw 0;
-  //   font-size: 1.5vw;
-  // }
-
-  // .course-category{
-  //   text-align: left;
-  //   margin: 2vw 0;
-  //   font-size: 1.5vw;
-  // }
-
-  // .course-date {
-  //   text-align: right;
-  //   opacity: 0.5;
-  //   margin: 2vw 0;
-  //   font-size: 1.5vw;
-  // }
-}
-
-.courses-list{
-  .course-main {
-    .course-title {
-      margin: 1vw;
-      font-size: 1.2vw;
-    }
-  
-    .course-author {
-      margin: 1vw;
-      font-size: 1.2vw;
-    }
-  
-    .course-category{
-      margin: 1vw;
-      font-size: 1.2vw;
-    }
-  
-    .course-date {
-      margin: 1vw;
-      font-size: 1vw;
-    }
-  }
 }
 
 .courses-contenet{
-  // perspective: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex:4;
 
   .course-main {
     box-shadow: 0 0 1vw #ADADAD;
-    width: 100%;
-    margin: 1vw;
-    padding: 15px;
+    padding: 10px;
+    margin: 5px;
     background-color: white;
     box-sizing: border-box;
-    // transform-style: flat;
-    // transform: rotateX(30deg);
 
-    // &:hover{
-    //   transform: rotateX(0deg);
-    //   transition: 1s;
-    //   background: linear-gradient(to bottom right, green, red);
-    //   color: white;
-    // }
-  
     .course-img {
       height: auto;
-      width: 100%;
+    
     }
   
     .course-title {
@@ -142,3 +48,4 @@
     }
   }
 }
+

@@ -10,17 +10,17 @@ function CoursePage() {
         <div className='course-page-main'>
             <div className="courseInfo">
                 <div>
+                    <Link to="/teacher">
+                        <div className="teacherAcc">
+                            <img className="teacherProfPic" src="https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png" />
+                            <p className="teacherName">Teacher.username</p>
+                        </div>
+                    </Link>
                     <img className="coursePhoto" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
                     <p className="courseName">
                         React JS ПРОДВИНУТЫЙ КУРС</p>
                     <p className="courseCategory">Course category</p>
                 </div>
-                <Link to="/teacher">
-                    <div className="teacherAcc">
-                        <img className="teacherProfPic" src="https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png" />
-                        <p className="teacherName">Teacher.username</p>
-                    </div>
-                </Link>
             </div>
             <div className="courseContainer">
                 <div className="videoQuizesContainer">

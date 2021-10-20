@@ -17,8 +17,8 @@ function SearchForm() {
         value={searchTerm}
         onChange={handleChange}
       />
-      <Link to ="/searchedItems">
-        <Button variant="outlined" color="primary">
+      <Link to="/searchedItems">
+        <Button variant="outlined">
           Search
         </Button>
       </Link>
