@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./style.scss";
 import SearchForm from "../SearchForm";
 import Categories from "../Categeories";
@@ -27,12 +26,6 @@ function Main() {
         </p>
       </div>
       <div className="courses-list">
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
         <Link to='course'>
           <CourseCard />
         </Link>

@@ -12,11 +12,13 @@ function Categories() {
   return (
     <div className="main-catgeories">
       {categories &&
-        categories.map((category) => {
+        [...categories, ...categories, ...categories].map((category) => {
           return (
             <Link to={`${category.title}`} key={category.title}>
               <CategoryCard category={category} />
+              {/* <CategoryCard category={category} />
               <CategoryCard category={category} />
+              <CategoryCard category={category} /> */}
 
             </Link>
 

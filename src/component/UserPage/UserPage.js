@@ -42,25 +42,16 @@ function UserPage() {
                     </div>
                 ) : (
                     <>
-                        <div className="container">
+                        <div className="couses-list">
                             <div className="titleCourses">My Courses</div>
 
                             <div className="courses">
-                                <OwlCarousel className='owl-theme' loop margin={20}>
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                    <CourseCard className='item' />
-                                </OwlCarousel>;
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
                             </div>
                         </div>
                     </>

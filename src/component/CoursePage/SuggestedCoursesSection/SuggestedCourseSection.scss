@@ -1,9 +1,6 @@
-.suggestedCoursesContainer {
-    height: 30%;
-}
 
 .suggestedTitle{
-      background: linear-gradient(#e52d27, #b31217);;
+      background: linear-gradient(#e52d27, #b31217);
     color: #fff;
     height: 40px;
     font-size: 30px;
@@ -11,22 +8,19 @@
     
 }
 
-.linksContainer{
-    background-color: #EEEEEE;
-    border-top: 1px solid #cb2d3e;
-    height: 90%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-sizing: border-box;
-}
+    .suggestedTitle{
+        background: linear-gradient(#cb2d3e, #ef473a);
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+        margin: 15px;
+        
+    }
+    
+    .linksContainer{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
 
-.suggestCoursesImg {
-    height: 100%;
-    padding: 30px;
-    cursor: pointer;
-        &:hover{
-            border: 1px solid #cb2d3e;
-   }
-}
+
