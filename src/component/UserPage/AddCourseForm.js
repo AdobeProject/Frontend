@@ -115,7 +115,7 @@ function AddCourseForm() {
                 />
                 {video.length > 0 && <ReactPlayer url={video} controls={true} />}
             </div>
-
+            <button className="submit-btn">Add</button>
 
         </div>
     )

@@ -22,5 +22,18 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
+
+      .course-main {
+        margin: 1vw;
+        font-size: 10px;
+
+        p {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            margin: 1vw 0;
+            font-size: 1.2vw;
+        }
+      }
     }
 }
