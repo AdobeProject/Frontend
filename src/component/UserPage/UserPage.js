@@ -9,6 +9,7 @@ import AddCourseForm from "./AddCourseForm";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import accountPhoto from './account.jpg'
 
 function UserPage() {
     // const [surname, setSurname] = useState('user.surname')
@@ -21,7 +22,7 @@ function UserPage() {
             <EditDetails trigger={editButton} setTrigger={setEditButton} />
             <div className="myProfile">
                 <img onClick={() => setEditButton(true)} title="Edit" className="editBtn" src={edit} />
-                <img className="userPhoto" src={userPhoto} alt='userPhoto' />
+                <img className="userPhoto" src={accountPhoto} alt='userPhoto' />
                 <input className="edit" type="file" />
                 <div className="userPageInfo">
                     <p>name</p>

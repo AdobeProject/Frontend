@@ -1,5 +1,4 @@
 import "./SuggestedCourseSection.scss";
-import CoursePage from "../CoursePage";
 import CourseCard from "../../Courses/CourseCard";
 
 function SuggestedCourssesSection() {

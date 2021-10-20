@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SuggestedCourssesSection from "./SuggestedCoursesSection/SuggestedCourseSection";
-
+import accountPhoto from './account.jpg'
 import "./CoursePage.scss"
 import ReactPlayer from "react-player";
 
@@ -12,7 +12,7 @@ function CoursePage() {
                 <div>
                     <Link to="/teacher">
                         <div className="teacherAcc">
-                            <img className="teacherProfPic" src="https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png" />
+                            <img className="teacherProfPic" src={accountPhoto}/>
                             <p className="teacherName">Teacher.username</p>
                         </div>
                     </Link>
