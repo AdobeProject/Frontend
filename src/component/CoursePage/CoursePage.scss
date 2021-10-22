@@ -1,7 +1,7 @@
 .course-page-main{
     display: flex;
-    height: calc(100vh - 90px);
     background-color: #EEEEEE;
+    height: calc(100vh - 90px);
 }
 
 .courseInfo {
@@ -14,7 +14,9 @@
 }
 
 .teacherAcc {
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .courseName{
@@ -22,13 +24,11 @@
     font-size: 25px;
     text-align: center;
     padding: 20px;
-    margin-top: 30px;
     color: #cb2d3e;
     font-weight: bold;
 }
 
 .coursePhoto {
-    margin-top: 30px;
     width: 80%;
 }
 
@@ -36,7 +36,6 @@
     font-size: 20px;
     color: #cb2d3e;
     margin: auto;
-    margin-top: 40px;
     padding: 1vw 1vw;
 
     &:hover{
@@ -48,7 +47,6 @@
 .teacherProfPic {
     width: 50%;
     border-radius: 50%;
-    border: 1px solid #cb2d3e;
     justify-content: end;
     cursor: pointer;
 }
@@ -68,16 +66,16 @@
     display: flex;
     flex: 4;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-around;
 }
 
-.videoQuizesContainer{
+.bigContainer{
     display: flex;
     padding: 20px;
-    margin-bottom: 30px;
 }
 
 .videoContainer {
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,6 +88,8 @@
 }
 
 .discriptionContainer {
+    margin: auto;
+    width: 30%;
     display: flex;
     justify-content: center;
     padding: 0 15px ;
@@ -100,9 +100,4 @@
         text-align: justify;
         color: #cb2d3e;
     }
-}
-
-.videoPlayer {
-    width: 95%;
-    height: 95%;
 }
