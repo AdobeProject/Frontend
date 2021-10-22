@@ -16,7 +16,7 @@ function EditDetails(props) {
         <div className="editDetails">
             <div className="innerDetails">
                 <DeleteAccPopup trigger={delAcc} setTrigger={setDelAcc} />
-                <button className="closeBtn" onClick={() => props.setTrigger(false)}>X</button>
+                <button className="closeBtn" onClick={() => props.setTrigger(false)}>&times;</button>
                 {props.children}
                 <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="text" placeholder="SURNAME" value={surname} onChange={(e) => setSurname(e.target.value)} />

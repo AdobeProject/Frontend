@@ -14,6 +14,8 @@
     }
     a{
       background-color: #fff;
+      padding: 15px;
+      text-align: start;
       &:hover {
         transform: scale(1.03);
         transition: .3s;
@@ -32,8 +34,10 @@
     height: 40px;
 
       p{
+        width: 90%;
+        display: flex;
+        justify-content: start;
         margin: auto;
-        margin-left: 15px;
         font-size: 20px;
 
     }
