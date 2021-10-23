@@ -1,8 +1,6 @@
 import "./App.scss";
 import Header from "./component/Header/Header";
 import Main from "./component/Main";
-import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "./store/actions/main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Courses from "./component/Courses/Courses";
 import UserPage from "./component/UserPage/UserPage";
@@ -12,10 +10,7 @@ import SearchPage from "./component/SearchForm/SearchPage/SearchPage";
 
 
 function App() {
-  const dispatch = useDispatch();
-  const getData = () => {
-    dispatch(getUser().then);
-  };
+
   return (
     <div className="App">
       <Router>
@@ -39,7 +34,7 @@ function App() {
           <Route path="/:catTitle/:subCaTitle" exact>
             <Courses />
           </Route>
-          
+
           <Route path="/" exact>
             <Main />
           </Route>
