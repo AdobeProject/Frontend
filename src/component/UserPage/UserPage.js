@@ -6,9 +6,6 @@ import edit from "./edit.png";
 import EditDetails from './EditDetails'
 import { Button } from "@material-ui/core";
 import AddCourseForm from "./AddCourseForm";
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 import accountPhoto from './account.jpg'
 
 function UserPage() {
@@ -44,7 +41,6 @@ function UserPage() {
                     <>
                         <div className="couses-list">
                             <div className="titleCourses">My Courses</div>
-
                             <div className="courses">
                                 <CourseCard className='item' />
                                 <CourseCard className='item' />

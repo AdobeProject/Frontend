@@ -6,7 +6,7 @@ import Courses from "./component/Courses/Courses";
 import UserPage from "./component/UserPage/UserPage";
 import CoursePage from "./component/CoursePage/CoursePage";
 import TeacherCoursesPage from "./component/TeacherCoursesPage";
-import SearchPage from "./component/SearchForm/SearchPage/SearchPage";
+
 
 
 function App() {

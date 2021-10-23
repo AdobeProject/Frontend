@@ -4,15 +4,18 @@ import CourseCard from "./CourseCard";
 import "./style.scss";
 import { Link } from "react-router-dom";
 import SearchForm from "../SearchForm";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { getCourses } from "../../store/mainSlice";
 
 function Courses() {
-  let { catTitle, subCaTitle } = useParams();
-  const courses = useSelector((state) => state.search.courses);
-  useEffect(() => {
+  const courses = useSelector((state) => state.categoriesReducer.courses);
+  console.log('courses', courses);
+  const dispatch =useDispatch()
 
-  })
+  useEffect(() => {
+    dispatch(getCourses())
+  },[])
 
 
 
@@ -21,7 +24,7 @@ function Courses() {
     <div className="courses-page">
       <FilterSection />
       <div className="courses-contenet">
-        {catTitle === "search" && <SearchForm />}
+        <SearchForm />
         <Link to='course'>
           <CourseCard />
         </Link>
