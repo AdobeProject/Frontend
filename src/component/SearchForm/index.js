@@ -18,9 +18,9 @@ function SearchForm() {
 
 
   useEffect(() => {
-    setSearchTerm(word),
-      [word]
-  })
+    setSearchTerm(word)
+  },[word]
+  )
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);

@@ -42,12 +42,8 @@ function Header() {
     };
   }, [wrapperRef, registerRef]);
 
-  const sxmiiiiii = () => {
-    dispatch(getUser())
-  }
   return (
     <div className="header">
-      <span onClick={sxmiiiiii}>SXMI</span>
       <div className="header-logo">
         <Link to="/">
           <img src={logo} alt="Logo" className="logo" />

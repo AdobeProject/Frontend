@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 const initialState = {
     currentCategory: '',
@@ -64,6 +65,8 @@ const initialState = {
             ],
         },
     ],
+
+    courses:[]
 }
 
 export const mainSlice = createSlice({
@@ -75,10 +78,26 @@ export const mainSlice = createSlice({
                 ...state,
                 currentCategory: action.payload
             }
+        },
+        setCourses: (state, action) => {
+            return {
+                ...state,
+                courses: action.payload
+            }
         }
     },
 })
 
-export const { setCategories } = mainSlice.actions
+export const getCourses = () => (dispatch) => {
+    axios.get('http://192.168.88.217:8080/course/')
+        .then((response) => {
+            if (response) {
+                dispatch(setCourses(response.data.courses))
+            }
+        })
+        .catch(err => err)
+}
+
+export const { setCategories, setCourses } = mainSlice.actions
 
 export default mainSlice.reducer

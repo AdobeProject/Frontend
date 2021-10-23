@@ -1,7 +1,6 @@
 .course-page-main{
     display: flex;
     background-color: #EEEEEE;
-    height: calc(100vh - 90px);
 }
 
 .courseInfo {
@@ -74,24 +73,15 @@
     padding: 20px;
 }
 
-.videoContainer {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
+
 
 .course-page-main .section-main{
     flex: 0 0;
 }
 
 .discriptionContainer {
-    margin: auto;
-    width: 30%;
     display: flex;
-    justify-content: center;
+    flex: 1;
     padding: 0 15px ;
 
     p{
@@ -101,3 +91,22 @@
         color: #cb2d3e;
     }
 }
+
+
+
+
+.videoContainer {
+    display: flex;
+    flex: 2;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: auto;
+    text-align: center;
+  }
+
+  @media (max-width: 1400px) {
+      .videoContainer {
+          width: 100px;
+      }
+  }
