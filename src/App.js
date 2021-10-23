@@ -22,9 +22,6 @@ function App() {
           <Route path="/course" exact>
             <CoursePage />
           </Route>
-          <Route path="/searchedItems" exact>
-            <SearchPage />
-          </Route>
           <Route path="/teacher" exact>
             <TeacherCoursesPage />
           </Route>

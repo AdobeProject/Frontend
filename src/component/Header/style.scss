@@ -83,7 +83,8 @@
   .header-btns {
     flex: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
     align-items: center;
 
     .login-btn{
