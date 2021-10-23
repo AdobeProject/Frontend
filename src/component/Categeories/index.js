@@ -8,7 +8,6 @@ import "./style.scss";
 
 function Categories() {
   const categories = useSelector((state) => state.categoriesReducer.categories);
-  console.log(categories, "");
   return (
     <div className="main-catgeories">
       {categories &&

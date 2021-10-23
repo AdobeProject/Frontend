@@ -6,17 +6,21 @@ import { useState } from "react";
 import LoginRegistry from "../LoginRegistry/LoginRegistry";
 import logo from "./logo.png";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { getUser } from "../../store/authSlice";
+
 
 function Header() {
-
+  const dispatch = useDispatch()
   const [buttonPopup, setButtonPopup] = useState(false);
   const wrapperRef = useRef(null);
   const registerRef = useRef(null);
   const [isUser, setIsUser] = useState(false);
   const categories = useSelector((state) => state.categoriesReducer.categories);
+  const z = useSelector(state => state.auth)
+  console.log(z);
 
   function handleSignOut() {
     setIsUser(true)
@@ -38,9 +42,12 @@ function Header() {
     };
   }, [wrapperRef, registerRef]);
 
-
+  const sxmiiiiii = () => {
+    dispatch(getUser())
+  }
   return (
     <div className="header">
+      <span onClick={sxmiiiiii}>SXMI</span>
       <div className="header-logo">
         <Link to="/">
           <img src={logo} alt="Logo" className="logo" />
@@ -61,7 +68,7 @@ function Header() {
           <>
             <div>
               <Link to="/UserPage">
-                <p className = "userName">Username</p>
+                <p className="userName">Username</p>
               </Link>
             </div>
             <Button className="signout-btn" onClick={handleSignOut} >

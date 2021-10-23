@@ -1,13 +1,34 @@
 import { Button } from "@material-ui/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+
 import "./style.scss";
 import { Link } from "react-router-dom";
+import { getSearchItem } from '../../store/searchSlice'
+import { useDispatch, useSelector } from "react-redux";
 
 function SearchForm() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const word = useSelector((state) => state.search.word);
+  let { catTitle, subCaTitle } = useParams();
+
+  console.log('catTitle', catTitle);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    setSearchTerm(word),
+      [word]
+  })
+
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
+
+  const handleOnSearch = () => {
+    dispatch(getSearchItem(searchTerm))
+  }
 
   return (
     <div className="search">
@@ -17,7 +38,7 @@ function SearchForm() {
         value={searchTerm}
         onChange={handleChange}
       />
-      <Link to="/searchedItems">
+      <Link to="/search" onClick={handleOnSearch}>
         <Button variant="outlined">
           Search
         </Button>
