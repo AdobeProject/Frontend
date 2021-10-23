@@ -1,10 +1,12 @@
 .main-catgeories {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 10px;
   overflow: hidden;
   padding: 50px 0;
+  width: 90%;
+  margin: auto;
 
   .categori-card {
     max-width: 250px;

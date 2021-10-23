@@ -10,14 +10,16 @@
     align-items: center;
     margin-top: 0;
     height: 100%;
-    flex: 1;
     box-sizing: border-box;
+    padding: 50px;
+    border-right: 1px #e52d27 solid;
 }
 
 .userPageInfo {
     font-style: unset;
     font-size: 30px;
     color: black;
+
 }
 
 .editBtn {
@@ -54,12 +56,13 @@
 		}
 
 .coursesContainer{
-    height: 100%;
+    width: 80%;
     align-items: center;
 
     .couses-list{
+        width: 90%;
         flex: 3;
-        margin-top: 50px;
+        margin: auto;
         box-sizing: border-box;
     }
 
@@ -91,22 +94,6 @@
     flex-wrap: wrap;
 }
 
-
-.dot {
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.4s ease;
-    margin: 0 2px;
-}
-
-.dot:hover {
-    background-color: #e52d27;
-}
-
 .add-course{
     display: flex;
     flex-direction: column;
@@ -124,7 +111,7 @@
         width: 100%;
         margin: 20px 0;
         border: none;
-        font-style: normal;
+        font: inherit;
 
         &:focus{
             border: 1px solid #e52d27;
