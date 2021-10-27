@@ -6,21 +6,30 @@ import { useState } from "react";
 import LoginRegistry from "../LoginRegistry/LoginRegistry";
 import logo from "./logo.png";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { signOut } from "../../store/authSlice";
+import { getCategories } from "../../store/mainSlice";
+
 
 function Header() {
-
   const [buttonPopup, setButtonPopup] = useState(false);
   const wrapperRef = useRef(null);
   const registerRef = useRef(null);
-  const [isUser, setIsUser] = useState(false);
   const categories = useSelector((state) => state.categoriesReducer.categories);
+  const user = useSelector(state => state.auth.user)
+  const dispatch = useDispatch()
 
   function handleSignOut() {
-    setIsUser(true)
+    dispatch(signOut())
   }
+
+  useEffect(() => {
+    console.log('aaaaaaaaaaaaaaaaaaaaa');
+
+    dispatch(getCategories())
+  }, [])
 
 
   useEffect(() => {
@@ -29,6 +38,9 @@ function Header() {
         setButtonPopup(false)
       }
     }
+    if (user) {
+      setButtonPopup(false)
+    }
 
     // Bind the event listener
     document.addEventListener("click", handleClickOutside);
@@ -36,8 +48,7 @@ function Header() {
       // Unbind the event listener on clean up
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [wrapperRef, registerRef]);
-
+  }, [wrapperRef, registerRef, user]);
 
   return (
     <div className="header">
@@ -48,33 +59,23 @@ function Header() {
       </div>
       <div className="header-menu">
         <div>
-          <p className="CategoryMenu">Collections</p>
+          <p className="CategoryMenu">Categories</p>
           <PopupMenu categories={categories} />
-        </div>
-        <div>
-          <Link to="/UserPage">
-            <p>About</p>
-          </Link>
-        </div>
-        <div>
-          <Link to="/UserPage">
-            <p>Contact Us</p>
-          </Link>
         </div>
       </div>
       <div className="header-btns">
-        {isUser ? (
+        {!user ? (
           <Button className="login-btn" ref={registerRef} onClick={() => setButtonPopup(true)}>
             Sign In / Sign Up
           </Button>
         ) : (
           <>
             <div>
-              <Link to="/UserPage">
-                <p className = "userName">Username</p>
+              <Link to="/userPage">
+                <p className="userName">{user.firstName} </p>
               </Link>
             </div>
-            <Button className="login-btn" onClick={handleSignOut} >
+            <Button className="signout-btn" onClick={handleSignOut} >
               Sign Out
             </Button>
           </>
@@ -86,7 +87,6 @@ function Header() {
           <div className="popup">
             <div ref={wrapperRef} className="popup-inner">
               <LoginRegistry />
-
             </div>
           </div>
         }

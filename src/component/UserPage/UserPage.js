@@ -1,49 +1,58 @@
-import React from "react";
-import "./UserPage.css"
+import React, { useState } from "react";
+
+import "./UserPage.scss"
 import CourseCard from "../Courses/CourseCard";
 import edit from "./edit.png";
 import EditDetails from './EditDetails'
-import { useState } from 'react';
+import { Button } from "@material-ui/core";
+import AddCourseForm from "./AddCourseForm";
+import accountPhoto from './account.jpg'
 
 function UserPage() {
     // const [surname, setSurname] = useState('user.surname')
-    const [EditButton, SetEditButton] = useState(false);
-    const [Name, SetName] = useState('user.name');
-    const [Surname, SetSurname] = useState('user.surname')
-    const [UserPhoto, SetUserPhoto] = useState("https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png")
+    const [editButton, setEditButton] = useState(false);
+    const [isAddCourse, setIsAddCourse] = useState(true)
+
+    const [userPhoto, setUserPhoto] = useState("https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png")
     return (
         <div className="bigDiv">
-            <EditDetails trigger={EditButton} setTrigger={SetEditButton} />
+            <EditDetails trigger={editButton} setTrigger={setEditButton} />
             <div className="myProfile">
-                <img onClick={() => SetEditButton(true)} title="Edit" className="editBtn" src={edit} />
-                <img className="userPhoto" src={UserPhoto} />
-                <input className="edit" multiple type="file" />
+                <img onClick={() => setEditButton(true)} title="Edit" className="editBtn" src={edit} />
+                <img className="userPhoto" src={accountPhoto} alt='userPhoto' />
+                <input className="edit" type="file" />
                 <div className="userPageInfo">
-                    <p>{Name}</p>
-                    <p>{Surname}</p>
-                    <p>Email: email@example.com</p>
+                    <p>name</p>
+                    <p>surname</p>
+                    <p>email@example.com</p>
                     <p>Watched Lessons {"\n"} 0</p>
+                    {
+                        isAddCourse ? <Button onClick={() => setIsAddCourse(false)}>View Course</Button> : <Button onClick={() => setIsAddCourse(true)}>Add Course</Button>
+                    }
+
                 </div>
             </div>
             <div className="coursesContainer">
-                <div className="titleCourses">My Courses</div>
-                <div className="container">
-                    <div className="courses">
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
+                {isAddCourse ? (
+                    <div className="add-courses-container">
+                        <AddCourseForm />
                     </div>
-                    <span className="dot"></span>
-                    <span className="dot"></span>
-                    <span className="dot"></span>
-                </div>
+                ) : (
+                    <>
+                        <div className="couses-list">
+                            <div className="titleCourses">My Courses</div>
+                            <div className="courses">
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                                <CourseCard className='item' />
+                            </div>
+                        </div>
+                    </>
+                )}
+
             </div>
         </div>
     );

@@ -1,15 +1,10 @@
 function CategoryCard({ category }) {
-  console.log(category);
   return (
     <div className="categori-card">
-      <div
-        className="category-img"
-        style={{
-          backgroundImage:
-            "url(https://s.udemycdn.com/home/top-categories/lohp-category-business-v2.jpg)",
-        }}
-      ></div>
-      {category && <p>{category.title}</p>}
+      <div>
+          <img className="category-img" src={category.imgId}></img>
+          </div>
+      {category && <p>{category.name.toUpperCase()}</p>}
     </div>
   );
 }

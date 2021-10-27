@@ -1,20 +1,20 @@
 .main {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 90px);
   justify-content: space-around ;
 
   .courses-list {
     color: #EEEEEE;
     display: flex;
-    padding: 20px;
+    padding: 25px 50px;
     justify-content: space-around;
 
     .courses-title {
       text-align: left;
     }
     a{
-      background-color: #fff;
+      padding: 15px;
+      text-align: start;
       &:hover {
         transform: scale(1.03);
         transition: .3s;
@@ -23,7 +23,7 @@
   }
 
   .title {
-    background-color: #ff5e52;
+    background-color: #e52d27;
     font-weight: 700;
     text-align: left;
     color: #fff;
@@ -33,8 +33,10 @@
     height: 40px;
 
       p{
+        width: 90%;
+        display: flex;
+        justify-content: start;
         margin: auto;
-        margin-left: 15px;
         font-size: 20px;
 
     }
@@ -45,3 +47,4 @@
     align-items: center;
   }
 }
+

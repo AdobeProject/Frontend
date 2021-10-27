@@ -1,16 +1,23 @@
 import "./SuggestedCourseSection.scss";
-import CoursePage from "../CoursePage";
+import CourseCard from "../../Courses/CourseCard";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 function SuggestedCourssesSection() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+  }, [])
   return (
-    <div className = "suggestedCoursesContainer">
+    <div className="suggestedCoursesContainer">
       <div className="suggestedTitle">Suggested Courses For You</div>
       <div className="linksContainer">
-        <img className="suggestCoursesImg" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
-        <img className="suggestCoursesImg" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
-        <img className="suggestCoursesImg" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
-        <img className="suggestCoursesImg" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
-        <img className="suggestCoursesImg" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
       </div>
     </div>
   )

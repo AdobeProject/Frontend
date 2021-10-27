@@ -18,7 +18,7 @@
   margin-top: 20px;
   border-radius: 20px;
   border: 1px solid #ffffff;
-  background: #DE3B3C;
+  background: #CB1F1F;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -86,11 +86,11 @@ input {
   width: 768px;
   max-width: 100%;
   min-height: 480px;
-
+  padding: 20px;
   h1 {
     font-weight: bold;
     margin-top: -5px;
-    color: linear-gradient(#cb2d3e, #ef473a);
+    color: linear-gradient(#e52d27, #b31217);
     font-family: Arial, Helvetica, sans-serif;
   }
 }
@@ -170,7 +170,7 @@ input {
 .overlay {
   background: #222529;
   background: -webkit-linear-gradient(to right, #222529, #222529);
-  background: linear-gradient(#cb2d3e, #ef473a);
+  background: linear-gradient(#e52d27, #b31217);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;

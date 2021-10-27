@@ -1,18 +1,30 @@
 .search {
   display: flex;
-  padding: 15px;
-  width: 100%;
+  padding: 15px 0;
+  width: 90%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  input {
-    width: 80%;
+  margin: auto;
+
+    input {
     height: 40px;
     background-color: white;
+    &:focus {
+      outline-color: #e52d27;
+    }
   }
 
-  button {
+    button {
     height: 40px;
     margin-left: 20px;
     background-color: white;
+    color: #e52d27;
+    border-color: #e52d27;
+
+    &:hover{
+      border-color: #b31217;
+      background-color: white;
+    }
   }
-}
+    }

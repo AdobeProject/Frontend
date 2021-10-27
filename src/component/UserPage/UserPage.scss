@@ -1,0 +1,148 @@
+.bigDiv {
+    display: flex;
+    height: calc(100vh - 90px); 
+    flex-direction: row;
+}
+
+.myProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+    border-right: 1px #e52d27 solid;
+}
+
+.userPageInfo {
+    font-style: unset;
+    font-size: 30px;
+    color: black;
+
+}
+
+.editBtn {
+    margin-top: 10px;
+    margin-left: 250px;
+}
+.editBtn:hover {
+    cursor: pointer;
+    background-color: #e6dbd3;
+    border-radius: 25%;
+}
+
+.userPhoto {
+		height: 160px;
+		margin-top: 50px;
+        box-sizing: border-box;
+        border: 5px;
+        border-radius: 50%;
+		}
+
+.edit {
+    display: none;
+}
+
+.name {
+		width: auto;
+		height: auto;
+		left: 70px;
+		top: 380px;
+		position: absolute;
+		font-style: unset;
+		font-size: 40px;
+		color: black;
+		}
+
+.coursesContainer{
+    width: 80%;
+    align-items: center;
+
+    .couses-list{
+        width: 90%;
+        flex: 3;
+        margin: auto;
+        box-sizing: border-box;
+    }
+
+}
+.titleCourses 	{
+    margin: auto;
+    font-weight: bold;
+    font-size: 40px;
+    color: black;
+    padding: 10px 0;
+}
+
+
+.add-courses-container{
+    margin: auto;
+    margin-top: 50px;
+    width: 90%;
+    box-sizing: border-box;
+    background-color: white;
+	color: black;
+	border-radius: 20px;
+    align-items: center;
+}
+.courses  {
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.add-course{
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    .course-title{
+        &::after{
+            border-bottom-color: #e52d27 ;
+        }
+    }
+    
+    .course-description{
+    
+        width: 100%;
+        margin: 20px 0;
+        border: none;
+        font: inherit;
+
+        &:focus{
+            border: 1px solid #e52d27;
+            outline-color: #e52d27;
+        }
+    }
+
+    .img-upload{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .selectors{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin: 30px 0;
+        height: 25px;
+    }
+
+    .submit-btn {
+        height: 40px;
+        width: 80px;
+        margin-left: 45%;
+        margin-top: 20px;
+        background-color: #e52d27;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+        border-radius: 7px;        
+    }
+
+}
