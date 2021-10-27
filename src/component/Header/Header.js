@@ -59,7 +59,7 @@ function Header() {
       </div>
       <div className="header-menu">
         <div>
-          <p className="CategoryMenu">Collections</p>
+          <p className="CategoryMenu">Categories</p>
           <PopupMenu categories={categories} />
         </div>
       </div>

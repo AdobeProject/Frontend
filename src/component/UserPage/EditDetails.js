@@ -21,6 +21,11 @@ function EditDetails(props) {
                 {props.children}
                 <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="text" placeholder="SURNAME" value={surname} onChange={(e) => setSurname(e.target.value)} />
+                <input type="password" placeholder="CHANGE PASSWORD" />
+                <input type="password" placeholder="CONFIRM NEW PASSWORD" />
+                <label for="pic" className="picText">Change Profile Picture:</label>
+                <input multiple type="file" name="pic" />
+                <p onClick={() => setDelAcc(true)} className="deleteBtn" type="reset" >Delete Account</p>
                 <button className="saveBtn" type="submit" onClick={handleSaveBtn}>Save</button>
             </div>
         </div>

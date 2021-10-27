@@ -4,17 +4,17 @@
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 16px;
-  padding: 30px 20px;
+  padding: 50px 20px;
   overflow: hidden;
   margin: auto;
 
   a{
     width: 24%;
+    font-weight: 700;
+    color: black;
 
     .category-img {
-      width: 90%;
-      height: 300px;
-      background-size: 100% 100%;
+      height: 200px;
       background-repeat: no-repeat;
 
       &:hover{

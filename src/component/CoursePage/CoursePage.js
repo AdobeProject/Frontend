@@ -18,6 +18,7 @@ function CoursePage() {
                             <p className="teacherName">Teacher.username</p>
                         </div>
                     </Link>
+                    <button>Add This Course To My List</button>
                 </div>
             </div>
             <div className="courseContainer">
