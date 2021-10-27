@@ -1,17 +1,15 @@
-
 import { Input, TextareaAutosize } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ShowUlpoadImg from '../ShowUploadImg/ShowUploadImg';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import ReactPlayer from "react-player";
-
-
-
+import { addCourse } from '../../store/mainSlice';
 
 function AddCourseForm() {
 
     const categories = useSelector((state) => state.categoriesReducer.categories);
+    const user = useSelector(state => state.auth.user)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [courseImg, setCourseImg] = useState(null)
@@ -19,7 +17,7 @@ function AddCourseForm() {
     const [subCategories, setSubCategories] = useState([])
     const [subCategory, setSubCategory] = useState('')
     const [video, setVideo] = useState("");
-
+    const dispatch = useDispatch()
 
 
     const handleOnchange = (e) => {
@@ -27,18 +25,26 @@ function AddCourseForm() {
         for (let index = 0; index < categories.length; index++) {
             console.log(e.target.value);
             const element = categories[index];
-            if (element.title === e.target.value) {
+            if (element.name === e.target.value) {
+                console.log('asd', e.target);
                 setSubCategories(element.subCategories)
-                console.log(element.subCategories);
                 break
             }
-
         }
     }
 
-
-
-
+    const handelOnAdd = () => {
+        const body = {
+            name: title,
+            description,
+            sub_category_id: subCategory,
+            video,
+            img: courseImg,
+            email: user.email
+        }
+        console.log('body', body);
+        dispatch(addCourse(body))
+    }
 
     return (
         <div className='add-course'>
@@ -68,37 +74,33 @@ function AddCourseForm() {
                     onChange={handleOnchange}
                 >
                     {categories.map((category) => (
-                        <option value={category.title} >{category.title}</option>
-
-                    )
-                    )}
+                        <option value={category.name} >{category.name}</option>))
+                    }
                 </select>
                 {subCategories && category && <select
                     value={subCategory}
-                    onChange={(e) => setSubCategory(e.target.value)}
+                    onChange={(e) => {
+                        setSubCategory(e.target.value)
+                    }}
 
                 >{
 
                         subCategories.map((item) => (
-                            <option value={item.title}>{item.title}</option>
-
+                            <option value={item.id} asd={item.id}>{item.name}</option>
                         )
                         )
                     }
                 </select>
-
                 }
 
 
             </div>
             <div className='img-upload'>
                 {courseImg && <ShowUlpoadImg image={courseImg} />}
-
                 <Input
                     type='file'
                     onChange={(e) => setCourseImg(e.target.files[0])}
                 />
-
             </div>
             <div>
                 <TextField
@@ -115,7 +117,7 @@ function AddCourseForm() {
                 />
                 {video.length > 0 && <ReactPlayer url={video} controls={true} />}
             </div>
-            <button className="submit-btn">Add</button>
+            <button className="submit-btn" onClick={handelOnAdd}>Add</button>
 
         </div>
     )

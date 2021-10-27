@@ -7,41 +7,36 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
-
-function Main() {
-
-  
-  const options = {
-    margin: 10,
-    responsiveClass: true,
-    dots: true,
-    smartSpeed: 500,
-    loop: true,
-    responsive: {
-        200: {
-            items: 1,
-        },
-        500: {
-            items: 2,
-        },
-        950: {
-            items: 3,
-        },
-        1400: {
-            items: 5,
-
-        }
+const options = {
+  margin: 10,
+  responsiveClass: true,
+  dots: true,
+  smartSpeed: 500,
+  loop: true,
+  responsive: {
+    200: {
+      items: 1,
     },
+    500: {
+      items: 2,
+    },
+    950: {
+      items: 3,
+    },
+    1400: {
+      items: 5,
+
+    }
+  },
 };
 
+function Main() {
   return (
     <div className="main">
       <div className="main-content"></div>
       <SearchForm />
       <div className="title">
-        <p>
-          Most Popular Categories
-        </p>
+        <p>Categories</p>
       </div>
       <Categories />
       <div className="title">
@@ -50,28 +45,28 @@ function Main() {
         </p>
       </div>
       <div className="courses-list">
-      <OwlCarousel className='owl-theme' {...options}>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
+        <OwlCarousel className='owl-theme' {...options}>
+          <Link to='/course'>
+            <CourseCard />
+          </Link>
+          <Link to='course'>
+            <CourseCard />
+          </Link>
+          <Link to='course'>
+            <CourseCard />
+          </Link>
+          <Link to='course'>
+            <CourseCard />
+          </Link>
+          <Link to='course'>
+            <CourseCard />
+          </Link>
+          <Link to='course'>
+            <CourseCard />
+          </Link>
+          <Link to='course'>
+            <CourseCard />
+          </Link>
         </OwlCarousel>
       </div>
     </div>

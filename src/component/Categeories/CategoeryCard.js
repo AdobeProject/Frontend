@@ -8,7 +8,7 @@ function CategoryCard({ category }) {
             "url(https://s.udemycdn.com/home/top-categories/lohp-category-business-v2.jpg)",
         }}
       ></div>
-      {category && <p>{category.title}</p>}
+      {category && <p>{category.name}</p>}
     </div>
   );
 }

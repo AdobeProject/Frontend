@@ -1,23 +1,29 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Checkbox from "@mui/material/Checkbox";
 import Avatar from "@mui/material/Avatar";
+import { useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./style.scss";
-import { useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { getCoursesByCatName } from "../../../store/mainSlice";
+
 
 
 function FilterSection() {
   let { catTitle } = useParams();
   const categories = useSelector((state) => state.categoriesReducer.categories);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCoursesByCatName())
+  }, [])
 
 
-  const [checked, setChecked] = React.useState([]);
+  const [checked, setChecked] = useState([]);
 
   console.log(checked);
 
@@ -38,7 +44,7 @@ function FilterSection() {
     <div className="filter-section">
       <List
         dense
-        sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" , }}
+        sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper", }}
       >
         {categories[0].subCategories.map((item) => {
           const labelId = `checkbox-list-secondary-label-${item.title}`;

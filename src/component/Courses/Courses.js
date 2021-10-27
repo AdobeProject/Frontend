@@ -11,14 +11,11 @@ import { getCourses } from "../../store/mainSlice";
 function Courses() {
   const courses = useSelector((state) => state.categoriesReducer.courses);
   console.log('courses', courses);
-  const dispatch =useDispatch()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getCourses())
-  },[])
-
-
-
+  }, [])
 
   return (
     <div className="courses-page">

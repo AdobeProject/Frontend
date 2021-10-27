@@ -8,13 +8,12 @@ import "./style.scss";
 
 function Categories() {
   const categories = useSelector((state) => state.categoriesReducer.categories);
-  const mostPopCat = [...categories, ...categories];
   return (
     <div className="main-catgeories">
       {categories &&
-      mostPopCat.map((category) => {
+        categories.map((category) => {
           return (
-            <Link to={`${category.title}`} key={category.title}>
+            <Link to={`${category.name}`} key={category.name}>
               <CategoryCard category={category} />
             </Link>
 

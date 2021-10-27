@@ -11,12 +11,10 @@ function CoursePage() {
             <div className="courseInfo">
                 <div>
                     <img className="coursePhoto" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
-                    <p className="courseName">
-                        React JS ПРОДВИНУТЫЙ КУРС</p>
                     <p className="courseCategory">Course category</p>
                     <Link to="/teacher">
                         <div className="teacherAcc">
-                            <img className="teacherProfPic" src={accountPhoto}/>
+                            <img className="teacherProfPic" src={accountPhoto} />
                             <p className="teacherName">Teacher.username</p>
                         </div>
                     </Link>
@@ -28,6 +26,7 @@ function CoursePage() {
                         <ReactPlayer url={'https://youtu.be/XzLuMtDelGk'} controls={true} />
                     </div>
                     <div className="discriptionContainer">
+                        <p className="courseName">  React JS ПРОДВИНУТЫЙ КУРС</p>
                         <p>This course is the most up-to-date, comprehensive and bestselling React course!
                             It was completely updated and re-recorded from the ground up in 2021 - it teaches the very latest version of React with all the core, modern features you need to know!
                             It was completely updated and re-recorded from the ground up in 2021 - it teaches the very latest version of React with all the core, modern features you need to know!

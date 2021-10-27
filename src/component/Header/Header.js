@@ -9,22 +9,27 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { getUser } from "../../store/authSlice";
+import { signOut } from "../../store/authSlice";
+import { getCategories } from "../../store/mainSlice";
 
 
 function Header() {
-  const dispatch = useDispatch()
   const [buttonPopup, setButtonPopup] = useState(false);
   const wrapperRef = useRef(null);
   const registerRef = useRef(null);
-  const [isUser, setIsUser] = useState(false);
   const categories = useSelector((state) => state.categoriesReducer.categories);
-  const z = useSelector(state => state.auth)
-  console.log(z);
+  const user = useSelector(state => state.auth.user)
+  const dispatch = useDispatch()
 
   function handleSignOut() {
-    setIsUser(true)
+    dispatch(signOut())
   }
+
+  useEffect(() => {
+    console.log('aaaaaaaaaaaaaaaaaaaaa');
+
+    dispatch(getCategories())
+  }, [])
 
 
   useEffect(() => {
@@ -33,6 +38,9 @@ function Header() {
         setButtonPopup(false)
       }
     }
+    if (user) {
+      setButtonPopup(false)
+    }
 
     // Bind the event listener
     document.addEventListener("click", handleClickOutside);
@@ -40,7 +48,7 @@ function Header() {
       // Unbind the event listener on clean up
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [wrapperRef, registerRef]);
+  }, [wrapperRef, registerRef, user]);
 
   return (
     <div className="header">
@@ -56,15 +64,15 @@ function Header() {
         </div>
       </div>
       <div className="header-btns">
-        {isUser ? (
+        {!user ? (
           <Button className="login-btn" ref={registerRef} onClick={() => setButtonPopup(true)}>
             Sign In / Sign Up
           </Button>
         ) : (
           <>
             <div>
-              <Link to="/UserPage">
-                <p className="userName">Username</p>
+              <Link to="/userPage">
+                <p className="userName">{user.firstName} </p>
               </Link>
             </div>
             <Button className="signout-btn" onClick={handleSignOut} >
@@ -79,7 +87,6 @@ function Header() {
           <div className="popup">
             <div ref={wrapperRef} className="popup-inner">
               <LoginRegistry />
-
             </div>
           </div>
         }
