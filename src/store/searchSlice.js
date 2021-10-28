@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const URL = 'http://192.168.88.20:8080'
-
+const URL="http://localhost:8080"
 const initialState = {
     courses: []
 }

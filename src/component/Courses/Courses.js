@@ -4,9 +4,7 @@ import CourseCard from "./CourseCard";
 import "./style.scss";
 import { Link } from "react-router-dom";
 import SearchForm from "../SearchForm";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getCourses } from "../../store/mainSlice";
+import {useSelector } from "react-redux";
 import NoFound from "../NoFound";
 
 function Courses() {
@@ -14,7 +12,7 @@ function Courses() {
 
   return (
     <div className="courses-page">
-      <FilterSection />
+       <FilterSection />
       <div className="courses-contenet">
         {!!courses.length && <SearchForm />}
         {courses.length ? courses.map(course => (

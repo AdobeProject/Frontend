@@ -40,7 +40,7 @@ function FilterSection() {
 
   useEffect(() => {
     checked.length ? dispatch(getCoursesBySubCatId(checked.join())) : dispatch(getCourses(catTitle, subCatId))
-  }, [checked])
+  }, [checked, catTitle ])
 
 
 

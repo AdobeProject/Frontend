@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-const URL = 'http://192.168.88.20:8080'
-
+const URL="http://localhost:8080"
 
 const initialState = {
     categories: [],
@@ -66,7 +65,7 @@ export const getCategories = () => (dispatch) => {
 }
 
 export const getCourses = (catTitle, subCatTitle) => (dispatch) => {
-    axios.get(`http://192.168.88.20:8080/course/category/${catTitle}`)
+    axios.get(`${URL}/course/category/${catTitle}`)
         .then((response) => {
             if (response) {
                 dispatch(setCourses(response.data))
@@ -79,7 +78,7 @@ export const getCourses = (catTitle, subCatTitle) => (dispatch) => {
 }
 
 export const getMainCours = (courseId) => (dispatch) => {
-    axios.get(`http://192.168.88.20:8080/course/${courseId}`)
+    axios.get(`${URL}/course/${courseId}`)
         .then((response) => {
             if (response) {
                 console.log('response.data Course', response.data);
@@ -92,7 +91,7 @@ export const getMainCours = (courseId) => (dispatch) => {
 }
 
 export const getCoursesBySubCatId = (data) => (dispatch) => {
-    axios.get(`http://192.168.88.20:8080/course/subcategory/${data}`)
+    axios.get(`${URL}/course/subcategory/${data}`)
         .then((response) => {
             if (response) {
                 dispatch(setCourses(response.data.courses))
@@ -105,7 +104,7 @@ export const getCoursesBySubCatId = (data) => (dispatch) => {
 
 
 export const getLastCourses = () => (dispatch) => {
-    axios.get('http://192.168.88.20:8080/course/last10')
+    axios.get(`${URL}/course/last10`)
         .then((response) => {
             if (response) {
                 dispatch(setLastCourses(response.data))
@@ -115,7 +114,7 @@ export const getLastCourses = () => (dispatch) => {
 }
 
 export const getSugestedCourses = (catName) => (dispatch) => {
-    axios.get(`http://192.168.88.20:8080/course/suggested/${catName}`)
+    axios.get(`${URL}/course/suggested/${catName}`)
         .then((response) => {
             if (response) {
                 dispatch(setSugestedCourses(response.data))
@@ -125,7 +124,7 @@ export const getSugestedCourses = (catName) => (dispatch) => {
 }
 
 export const getTeacherCourses = (teacherEmail) => (dispatch) => {
-    axios.get(`http://192.168.88.20:8080/course/teacher/${teacherEmail}`)
+    axios.get(`${URL}/course/teacher/${teacherEmail}`)
         .then((response) => {
             if (response) {
                 dispatch(setTeacherCourses(response.data))
@@ -136,18 +135,15 @@ export const getTeacherCourses = (teacherEmail) => (dispatch) => {
 
 export const addCourse = (courseData) => (dispatch) => {
 
-    axios.post('http://192.168.88.20:8080/course/', courseData, {
+    axios.post(`${URL}/course/`, courseData, {
         headers: {
             'Authorization': localStorage.getItem('userToken')
         }
     })
-        .then(response => {
-            console.log('responseCOurs', response);
-        })
 }
 export const addImg = (data) => (dispatch) => {
 
-    axios.post('http://192.168.88.20:8080/upload', data, {
+    axios.post(`${URL}/upload`, data, {
         headers: {
             'Authorization': localStorage.getItem('userToken'),
             'Content-Type': 'multipart/form-data'

@@ -40,7 +40,7 @@ function UserPage() {
                         <p>{user.email}</p></>)}
                     <p>Watched Lessons {"\n"} 0</p>
                     {
-                        (user && user.userRole === 'TEACHER' && isAddCourse) ? <Button onClick={() => setIsAddCourse(false)}>View Course</Button> : <Button onClick={() => setIsAddCourse(true)}>Add Course</Button>
+                       user && user.userRole === 'TEACHER'&& ((user  && isAddCourse) ? <Button onClick={() => setIsAddCourse(false)}>View Course</Button> : <Button onClick={() => setIsAddCourse(true)}>Add Course</Button>)
                     }
 
                 </div>

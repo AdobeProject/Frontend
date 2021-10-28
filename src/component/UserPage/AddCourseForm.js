@@ -6,6 +6,7 @@ import { TextField } from '@material-ui/core';
 import ReactPlayer from "react-player";
 import { addCourse, addImg } from '../../store/mainSlice';
 
+
 function AddCourseForm() {
 
     const categories = useSelector((state) => state.categoriesReducer.categories);
@@ -34,6 +35,7 @@ function AddCourseForm() {
     }
 
     const handelOnAdd = () => {
+
         const body = {
             name: title,
             description,
@@ -83,6 +85,7 @@ function AddCourseForm() {
                     value={category}
                     onChange={handleOnchange}
                 >
+                  <option>--Choose Category--</option>
                     {categories.map((category) => (
                         <option value={category.name} >{category.name}</option>))
                     }
@@ -93,7 +96,8 @@ function AddCourseForm() {
                         setSubCategory(e.target.value)
                     }}
 
-                >{
+                >
+                    {
 
                         subCategories.map((item) => (
                             <option value={item.id} asd={item.id}>{item.name}</option>
