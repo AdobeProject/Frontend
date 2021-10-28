@@ -24,7 +24,6 @@ export const getSearchedCourses = (word) => (dispatch) => {
     axios.get(`${URL}/course/search/${word}`)
         .then((response) => {
             if (response) {
-                console.log('response', response);
                 dispatch(setCourses(response.data))
             }
         })

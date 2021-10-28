@@ -22,7 +22,7 @@ function App() {
     }
     dispatch(getLastCourses())
 
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="App">

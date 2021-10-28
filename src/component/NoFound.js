@@ -1,4 +1,3 @@
-import noFounds from '../images/noFound.jpg'
 
 function NoFound() {
     return (

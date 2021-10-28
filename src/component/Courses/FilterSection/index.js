@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -31,7 +31,7 @@ function FilterSection() {
         }
       }
     }
-  }, [catTitle])
+  }, [catTitle,categories, subCatId])
 
   useEffect(() => {
     setChecked([])
@@ -40,7 +40,7 @@ function FilterSection() {
 
   useEffect(() => {
     checked.length ? dispatch(getCoursesBySubCatId(checked.join())) : dispatch(getCourses(catTitle, subCatId))
-  }, [checked, catTitle ])
+  }, [checked, catTitle,subCatId, dispatch])
 
 
 

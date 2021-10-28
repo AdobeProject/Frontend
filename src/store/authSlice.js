@@ -130,7 +130,6 @@ export const getEnrolledCourse = () => (dispatch) => {
         }
     }).then((response) => {
         if (response) {
-            console.log(';my course', response);
             dispatch(setUserCoursses(response.data))
         } else {
             dispatch(setUserCoursses([]))

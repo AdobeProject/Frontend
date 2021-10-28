@@ -15,7 +15,7 @@
   .header-menu {
     display: flex;
     flex: 1;
-    align-items: flex-end;
+    align-items: center;
     padding-left: 25px;
 
     .popup-menu {
@@ -24,6 +24,7 @@
       width: 150px;
       z-index: 999;
       display: none;
+      border-radius: 4px;
 
       div {
         cursor: pointer;
@@ -44,6 +45,8 @@
           z-index: 9999;
           width: 250px;
           text-align: left;
+          border-radius: 4px;
+
 
           p:first-letter {text-transform: uppercase}
 

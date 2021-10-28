@@ -1,5 +1,5 @@
 import { Input, TextareaAutosize } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ShowUlpoadImg from '../ShowUploadImg/ShowUploadImg';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
@@ -24,10 +24,8 @@ function AddCourseForm() {
     const handleOnchange = (e) => {
         setCategory(e.target.value)
         for (let index = 0; index < categories.length; index++) {
-            console.log(e.target.value);
             const element = categories[index];
             if (element.name === e.target.value) {
-                console.log('asd', e.target);
                 setSubCategories(element.subCategories)
                 break
             }
@@ -52,7 +50,6 @@ function AddCourseForm() {
         const formData = new FormData()
         formData.append('file', courseImg)
 
-        console.log('body0', body);
         dispatch(addImg(formData))
         dispatch(addCourse(body))
 
@@ -85,9 +82,9 @@ function AddCourseForm() {
                     value={category}
                     onChange={handleOnchange}
                 >
-                  <option>--Choose Category--</option>
+                    <option>--Choose Category--</option>
                     {categories.map((category) => (
-                        <option value={category.name} >{category.name}</option>))
+                        <option value={category.name} key={category.name}>{category.name}</option>))
                     }
                 </select>
                 {subCategories && category && <select
@@ -97,10 +94,11 @@ function AddCourseForm() {
                     }}
 
                 >
-                    {
+                    <option>--Choose Subcategory--</option>
 
+                    {
                         subCategories.map((item) => (
-                            <option value={item.id} asd={item.id}>{item.name}</option>
+                            <option value={item.id} asd={item.id} key={item.id}>{item.name}</option>
                         )
                         )
                     }
