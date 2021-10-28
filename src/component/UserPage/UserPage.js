@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./UserPage.scss"
 import CourseCard from "../Courses/CourseCard";
@@ -7,11 +7,29 @@ import EditDetails from './EditDetails'
 import { Button } from "@material-ui/core";
 import AddCourseForm from "./AddCourseForm";
 import accountPhoto from './account.jpg'
+import { useDispatch, useSelector } from "react-redux";
+import { getEnrolledCourse } from "../../store/authSlice";
+import { Link } from "react-router-dom";
 
 function UserPage() {
-    // const [surname, setSurname] = useState('user.surname')
+    const user = useSelector(state => state.auth.user)
+    const userCourses = useSelector(state => state.auth.userCourses['courses'])
+
     const [editButton, setEditButton] = useState(false);
-    const [isAddCourse, setIsAddCourse] = useState(true)
+    const [isAddCourse, setIsAddCourse] = useState(false)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(user.userRole==='TEACHER'){
+            
+        
+        }else{
+            dispatch(getEnrolledCourse())
+
+        }
+    }, [])
+
 
     const [userPhoto, setUserPhoto] = useState("https://www.iephb.ru/wp-content/themes/iephb/images/default_user.png")
     return (
@@ -22,12 +40,13 @@ function UserPage() {
                 <img className="userPhoto" src={accountPhoto} alt='userPhoto' />
                 <input className="edit" type="file" />
                 <div className="userPageInfo">
-                    <p>name</p>
-                    <p>surname</p>
-                    <p>email@example.com</p>
+                    {user && (<>
+                        <p>{user.firstName}</p>
+                        <p>{user.lastName}</p>
+                        <p>{user.email}</p></>)}
                     <p>Watched Lessons {"\n"} 0</p>
                     {
-                        isAddCourse ? <Button onClick={() => setIsAddCourse(false)}>View Course</Button> : <Button onClick={() => setIsAddCourse(true)}>Add Course</Button>
+                       user && user.userRole === 'TEACHER'&& ((user  && isAddCourse) ? <Button onClick={() => setIsAddCourse(false)}>View Course</Button> : <Button onClick={() => setIsAddCourse(true)}>Add Course</Button>)
                     }
 
                 </div>
@@ -42,12 +61,12 @@ function UserPage() {
                         <div className="couses-list">
                             <div className="titleCourses">My Courses</div>
                             <div className="courses">
-                                <CourseCard className='item' />
-                                <CourseCard className='item' />
-                                <CourseCard className='item' />
-                                <CourseCard className='item' />
-                                <CourseCard className='item' />
-                                <CourseCard className='item' />
+                                {userCourses && userCourses.map(course => (
+                                    <Link to={`/course/${course.id}`}>
+                                        <CourseCard course={course} />
+                                    </Link>
+                                ))
+                                }
                             </div>
                         </div>
                     </>

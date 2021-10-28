@@ -18,5 +18,20 @@ a{
   text-decoration: none;
   font-size: 20px;
   color: black;
+  cursor: pointer;
+}
+.not-found{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  font-size: 48px;
+  color: rgb(153, 153, 153);
+}
+
+.course-img {
+  max-width: 350px;
+
 }
 

@@ -16,15 +16,15 @@
     background-color: white;
     box-sizing: border-box;
 
-    .course-img {
-      height: auto;
-    
-    }
+  
   
     .course-title {
       text-align: left;
       margin: 1vw 0;
       font-size: 1.2vw;
+      max-width: 250px;
+      display: flex;
+      flex-wrap: wrap;
     }
   
     .course-author {

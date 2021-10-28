@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { useEffect } from "react";
+import { getLastCourses } from "../../store/mainSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const options = {
   margin: 10,
@@ -31,6 +35,15 @@ const options = {
 };
 
 function Main() {
+  const lastCourses = useSelector((state) => state.categoriesReducer.lastCourses);
+
+  const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(getLastCourses())
+
+  // }, [])
+
   return (
     <div className="main">
       <div className="main-content"></div>
@@ -45,29 +58,14 @@ function Main() {
         </p>
       </div>
       <div className="courses-list">
-        <OwlCarousel className='owl-theme' {...options}>
-          <Link to='/course'>
-            <CourseCard />
-          </Link>
-          <Link to='course'>
-            <CourseCard />
-          </Link>
-          <Link to='course'>
-            <CourseCard />
-          </Link>
-          <Link to='course'>
-            <CourseCard />
-          </Link>
-          <Link to='course'>
-            <CourseCard />
-          </Link>
-          <Link to='course'>
-            <CourseCard />
-          </Link>
-          <Link to='course'>
-            <CourseCard />
-          </Link>
-        </OwlCarousel>
+        {lastCourses.length && <OwlCarousel className='owl-theme' {...options}>
+          {lastCourses.map(course => (
+            <Link to={`/course/${course.id}`}>
+              <CourseCard course={course} />
+            </Link>
+          ))
+          }
+        </OwlCarousel>}
       </div>
     </div>
   );

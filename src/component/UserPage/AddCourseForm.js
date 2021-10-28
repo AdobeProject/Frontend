@@ -4,7 +4,8 @@ import ShowUlpoadImg from '../ShowUploadImg/ShowUploadImg';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import ReactPlayer from "react-player";
-import { addCourse } from '../../store/mainSlice';
+import { addCourse, addImg } from '../../store/mainSlice';
+
 
 function AddCourseForm() {
 
@@ -34,16 +35,27 @@ function AddCourseForm() {
     }
 
     const handelOnAdd = () => {
+
         const body = {
             name: title,
             description,
             sub_category_id: subCategory,
             video,
-            img: courseImg,
+            img: `http://localhost:8080/files/${courseImg.name}`,
             email: user.email
         }
-        console.log('body', body);
+        setTitle('')
+        setDescription('')
+        setSubCategory('')
+        setVideo('')
+        setCourseImg('')
+        const formData = new FormData()
+        formData.append('file', courseImg)
+
+        console.log('body0', body);
+        dispatch(addImg(formData))
         dispatch(addCourse(body))
+
     }
 
     return (
@@ -73,6 +85,7 @@ function AddCourseForm() {
                     value={category}
                     onChange={handleOnchange}
                 >
+                  <option>--Choose Category--</option>
                     {categories.map((category) => (
                         <option value={category.name} >{category.name}</option>))
                     }
@@ -83,7 +96,8 @@ function AddCourseForm() {
                         setSubCategory(e.target.value)
                     }}
 
-                >{
+                >
+                    {
 
                         subCategories.map((item) => (
                             <option value={item.id} asd={item.id}>{item.name}</option>
@@ -118,7 +132,6 @@ function AddCourseForm() {
                 {video.length > 0 && <ReactPlayer url={video} controls={true} />}
             </div>
             <button className="submit-btn" onClick={handelOnAdd}>Add</button>
-
         </div>
     )
 }

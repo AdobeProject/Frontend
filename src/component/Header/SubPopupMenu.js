@@ -4,8 +4,8 @@ function SubPopupMenu({ category }) {
   return (
     <div className="sub-popup-menu">
       {category.subCategories.map((item) => (
-        <Link to={`/${category.name}/${item.id}`}>
-          <p key={item.id}>{item.name}</p>
+        <Link to={`/${category.name}/${item.id}`} key={item.id}>
+          <p >{item.name}</p>
         </Link>
       ))}
     </div>

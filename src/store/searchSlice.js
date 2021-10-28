@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-
+const URL="http://localhost:8080"
 const initialState = {
-    word: '',
     courses: []
 }
 
@@ -14,19 +13,19 @@ export const searchSlice = createSlice({
         setCourses: (state, action) => {
             return {
                 ...state,
-                word: action.payload.word,
-                courses: action.payload.data,
+                courses: action.payload,
             }
         }
     },
 })
 
-export const getSearchItem = (word) => (dispatch) => {
+export const getSearchedCourses = (word) => (dispatch) => {
 
-    axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    axios.get(`${URL}/course/search/${word}`)
         .then((response) => {
             if (response) {
-                dispatch(setCourses({ data: response.data, 'word': word }))
+                console.log('response', response);
+                dispatch(setCourses(response.data))
             }
         })
         .catch(err => err)
