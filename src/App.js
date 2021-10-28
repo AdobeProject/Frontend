@@ -9,15 +9,20 @@ import TeacherCoursesPage from "./component/TeacherCoursesPage";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authentication } from "./store/authSlice";
-
+import SearchPage from "./component/SearchPage";
+import { getLastCourses } from "./store/mainSlice";
 
 
 function App() {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   dispatch(authentication())
-  // }, [])
+  useEffect(() => {
+    if (localStorage.getItem('userToken')) {
+      dispatch(authentication())
+    }
+    dispatch(getLastCourses())
+
+  }, [])
 
   return (
     <div className="App">
@@ -27,16 +32,19 @@ function App() {
           <Route path="/userPage" exact>
             <UserPage />
           </Route>
-          <Route path="/course" exact>
+          <Route path="/course/:courseId" >
             <CoursePage />
           </Route>
-          <Route path="/teacher" exact>
+          <Route path="/teacher/:teacherEmail" exact>
             <TeacherCoursesPage />
+          </Route>
+          <Route path="/search/:searchValue" >
+            <SearchPage />
           </Route>
           <Route path="/:catTitle" exact>
             <Courses />
           </Route>
-          <Route path="/:catTitle/:subCaTitle" exact>
+          <Route path="/:catTitle/:subCatId" exact>
             <Courses />
           </Route>
           <Route path="/" exact>

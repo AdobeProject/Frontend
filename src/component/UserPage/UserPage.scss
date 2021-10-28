@@ -1,24 +1,27 @@
 .bigDiv {
     display: flex;
-    height: calc(100vh - 90px); 
     flex-direction: row;
 }
 
 .myProfile {
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
     margin-top: 0;
-    height: 100%;
+    height: 100vh;
     box-sizing: border-box;
-    padding: 50px;
     border-right: 1px #e52d27 solid;
 }
 
 .userPageInfo {
     font-style: unset;
-    font-size: 30px;
+    font-size: 25px;
     color: black;
+
+    p{
+        margin: 10px;
+    }
 
 }
 
@@ -34,7 +37,6 @@
 
 .userPhoto {
 		height: 160px;
-		margin-top: 50px;
         box-sizing: border-box;
         border: 5px;
         border-radius: 50%;
@@ -56,7 +58,7 @@
 		}
 
 .coursesContainer{
-    width: 80%;
+    flex: 2;
     align-items: center;
 
     .couses-list{

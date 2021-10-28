@@ -7,42 +7,21 @@ import SearchForm from "../SearchForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCourses } from "../../store/mainSlice";
+import NoFound from "../NoFound";
 
 function Courses() {
   const courses = useSelector((state) => state.categoriesReducer.courses);
-  console.log('courses', courses);
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getCourses())
-  }, [])
 
   return (
     <div className="courses-page">
       <FilterSection />
       <div className="courses-contenet">
-        <SearchForm />
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
-        <Link to='course'>
-          <CourseCard />
-        </Link>
+        {!!courses.length && <SearchForm />}
+        {courses.length ? courses.map(course => (
+          <Link to={`/course/${course.id}`}>
+            <CourseCard course={course} />
+          </Link>
+        )) : <NoFound />}
       </div>
     </div>
   );

@@ -26,8 +26,6 @@ function Header() {
   }
 
   useEffect(() => {
-    console.log('aaaaaaaaaaaaaaaaaaaaa');
-
     dispatch(getCategories())
   }, [])
 

@@ -1,32 +1,27 @@
 import React from 'react';
 import './EditDetails.scss';
 import { useState } from 'react';
-import DeleteAccPopup from './DeleteAccPopup';
+import { useDispatch } from 'react-redux';
+import { changeUserInfo } from '../../store/authSlice';
 
 function EditDetails(props) {
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('')
-    const [delAcc, setDelAcc] = useState(false);
+    const [firstName, setFirstName] = useState('');
+    const [secondName, setSecondName] = useState('')
+    const dispatch = useDispatch()
 
-    const handleSaveBtn = () => {
+    const handelSaveBtn = () => {
+        dispatch(changeUserInfo({ firstName, secondName }))
+        props.setTrigger(false)
 
-        //add logic
-        console.log(name + " " + surname);
     }
     return (props.trigger) ? (
         <div className="editDetails">
             <div className="innerDetails">
-                <DeleteAccPopup trigger={delAcc} setTrigger={setDelAcc} />
                 <button className="closeBtn" onClick={() => props.setTrigger(false)}>&times;</button>
                 {props.children}
-                <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} />
-                <input type="text" placeholder="SURNAME" value={surname} onChange={(e) => setSurname(e.target.value)} />
-                <input type="password" placeholder="CHANGE PASSWORD" />
-                <input type="password" placeholder="CONFIRM NEW PASSWORD" />
-                <label for="pic" className="picText">Change Profile Picture:</label>
-                <input multiple type="file" name="pic" />
-                <p onClick={() => setDelAcc(true)} className="deleteBtn" type="reset" >Delete Account</p>
-                <button className="saveBtn" type="submit" onClick={handleSaveBtn}>Save</button>
+                <input type="text" placeholder="NAME" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                <input type="text" placeholder="SURNAME" value={secondName} onChange={(e) => setSecondName(e.target.value)} />
+                <button className="saveBtn" type="submit" onClick={handelSaveBtn}>Save</button>
             </div>
         </div>
     ) : "";

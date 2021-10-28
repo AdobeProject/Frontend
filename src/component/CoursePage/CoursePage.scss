@@ -54,6 +54,7 @@
     color: #cb2d3e;
     font-weight: bold;
     cursor: pointer;
+    margin: 5px;
 
     &:hover{
         cursor: pointer;
@@ -91,10 +92,19 @@
         text-align: justify;
         color: #cb2d3e;
     }
+
+    button{
+        border-color:#cb2d3e ;
+        color: red;
+        padding: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgb(223, 223, 223);
+        }
+    }
 }
-
-
-
 
 .videoContainer {
     display: flex;
@@ -104,6 +114,7 @@
     box-sizing: border-box;
     margin: auto;
     text-align: center;
+
   }
 
   @media (max-width: 1400px) {

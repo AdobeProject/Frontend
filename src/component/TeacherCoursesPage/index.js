@@ -1,28 +1,43 @@
 
 import CourseCard from "../Courses/CourseCard"
 
-import FilterSection from "../Courses/FilterSection"
 import "./style.scss"
 import accountPhoto from "./images/account.jpg"
+import { useEffect } from "react"
+import { useParams } from "react-router"
+import { useDispatch, useSelector } from "react-redux"
+import { getTeacherCourses } from "../../store/mainSlice"
+import { Link } from "react-router-dom"
 
-function TeacherCoursesPage(){
-    return (
-        <div className="teacher-page">
-            <div className='account-info'>
-                <img src={accountPhoto}></img>
-                <p>Name Surname</p>
-                <FilterSection />
-            </div>
-        <div className="teacher-courses">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-        </div>
+function TeacherCoursesPage() {
+
+  const { teacherEmail } = useParams();
+  const teacherCourses = useSelector((state) => state.categoriesReducer.teacherCourses);
+  const dispatch = useDispatch();
+
+  console.log('teacherCourses', teacherCourses)
+
+
+  useEffect(() => {
+    dispatch(getTeacherCourses(teacherEmail))
+
+  }, [])
+  return (
+    <div className="teacher-page">
+      <div className='account-info'>
+        <img src={accountPhoto}></img>
+        <p>{teacherEmail}</p>
       </div>
-    )
+      <div className="teacher-courses">
+        {teacherCourses.map(course => (
+          <Link to={`/course/${course.id}`}>
+            <CourseCard course={course} />
+          </Link>
+        ))
+        }
+      </div>
+    </div>
+  )
 }
 
 export default TeacherCoursesPage

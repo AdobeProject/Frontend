@@ -1,42 +1,59 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SuggestedCourssesSection from "./SuggestedCoursesSection/SuggestedCourseSection";
 import accountPhoto from './account.jpg'
 import "./CoursePage.scss"
 import ReactPlayer from "react-player";
+import { useDispatch, useSelector } from "react-redux";
+import { getMainCours } from "../../store/mainSlice";
+import { useParams } from "react-router";
+import { addToMyCourse } from "../../store/authSlice";
+
 
 function CoursePage() {
+    const mainCourse = useSelector((state) => state.categoriesReducer.mainCourse);
+    const { courseId } = useParams();
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getMainCours(courseId))
+
+    }, [courseId])
+
+    const handelOnAddCourse = () => {
+        dispatch(addToMyCourse(mainCourse.id))
+    }
+
     return (
         <div className='course-page-main'>
             <div className="courseInfo">
                 <div>
-                    <img className="coursePhoto" src="https://pyxis.nymag.com/v1/imgs/c0c/fe3/2c8ccff540d5bd1d55b6ce5e106720976e.rsquare.w600.jpg" />
+                    <img className="coursePhoto" src={mainCourse.img} />
                     <p className="courseCategory">Course category</p>
-                    <Link to="/teacher">
+                    {mainCourse.owner && (<Link to={`/teacher/${mainCourse.owner.email}`}>
                         <div className="teacherAcc">
                             <img className="teacherProfPic" src={accountPhoto} />
-                            <p className="teacherName">Teacher.username</p>
+                            <p className="teacherName">{mainCourse.owner.firstName}</p>
+                            <p className="teacherName">{mainCourse.owner.lastName}</p>
                         </div>
-                    </Link>
-                    <button>Add This Course To My List</button>
+                    </Link>)}
                 </div>
             </div>
             <div className="courseContainer">
                 <div className="bigContainer">
                     <div className="videoContainer">
-                        <ReactPlayer url={'https://youtu.be/XzLuMtDelGk'} controls={true} />
+                        <ReactPlayer url={mainCourse.video} controls={true} />
                     </div>
                     <div className="discriptionContainer">
-                        <p className="courseName">  React JS ПРОДВИНУТЫЙ КУРС</p>
-                        <p>This course is the most up-to-date, comprehensive and bestselling React course!
-                            It was completely updated and re-recorded from the ground up in 2021 - it teaches the very latest version of React with all the core, modern features you need to know!
-                            It was completely updated and re-recorded from the ground up in 2021 - it teaches the very latest version of React with all the core, modern features you need to know!
-                        </p>
+                        <p className="courseName">{mainCourse.name}</p>
+                        <p>{mainCourse.description}</p>
+                        <button onClick={handelOnAddCourse}>Add This Course To My List</button>
+                        <button>Delete This Course From My List</button>
+
                     </div>
                 </div>
-                <SuggestedCourssesSection />
+                {mainCourse && mainCourse.sub_category_id && mainCourse.sub_category_id.category && <SuggestedCourssesSection catName={mainCourse.sub_category_id.category.name} />}
             </div>
-
         </div>
     )
 }
