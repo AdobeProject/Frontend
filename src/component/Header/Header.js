@@ -27,7 +27,7 @@ function Header() {
 
   useEffect(() => {
     dispatch(getCategories())
-  }, [])
+  }, [dispatch])
 
 
   useEffect(() => {

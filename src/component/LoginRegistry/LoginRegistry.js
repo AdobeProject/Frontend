@@ -38,7 +38,6 @@ const LoginRegistry = () => {
     }
   }, [nameError, surnameError, emailError, passwordError])
 
-  console.log('formValid', formValid);
 
   const nameHandler = (e) => {
     setName(e.target.value)
@@ -118,7 +117,6 @@ const LoginRegistry = () => {
 
   const handelOnLogin = (event) => {
     event.preventDefault();
-    console.log('login');
     const userData = {
       email,
       password,

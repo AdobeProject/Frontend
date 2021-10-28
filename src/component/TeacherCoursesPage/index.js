@@ -15,22 +15,20 @@ function TeacherCoursesPage() {
   const teacherCourses = useSelector((state) => state.categoriesReducer.teacherCourses);
   const dispatch = useDispatch();
 
-  console.log('teacherCourses', teacherCourses)
-
 
   useEffect(() => {
     dispatch(getTeacherCourses(teacherEmail))
 
-  }, [])
+  }, [dispatch,teacherEmail])
   return (
     <div className="teacher-page">
       <div className='account-info'>
-        <img src={accountPhoto}></img>
+        <img src={accountPhoto} alt='img'></img>
         <p>{teacherEmail}</p>
       </div>
       <div className="teacher-courses">
         {teacherCourses.map(course => (
-          <Link to={`/course/${course.id}`}>
+          <Link to={`/course/${course.id}`} key={course.id}>
             <CourseCard course={course} />
           </Link>
         ))

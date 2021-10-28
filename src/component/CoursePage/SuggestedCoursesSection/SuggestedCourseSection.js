@@ -13,13 +13,13 @@ function SuggestedCourssesSection({ catName }) {
 
   useEffect(() => {
     dispatch(getSugestedCourses(catName))
-  }, [])
+  }, [dispatch, catName])
   return (
     <div className="suggestedCoursesContainer">
       <div className="suggestedTitle">Suggested Courses For You</div>
       <div className="linksContainer">
         {
-          sugestedCourses && sugestedCourses.map(course => <Link to={`/course/${course.id}`}>
+          sugestedCourses && sugestedCourses.map(course => <Link to={`/course/${course.id}`} key={course.id}>
             <CourseCard course={course} />
           </Link>)
         }

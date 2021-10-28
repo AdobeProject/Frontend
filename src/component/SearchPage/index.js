@@ -18,13 +18,13 @@ function SearchPage() {
 
     useEffect(() => {
         searchValue && dispatch(getSearchedCourses(searchValue))
-    }, [searchValue])
+    }, [searchValue, dispatch])
 
     return (
         <div className="search-page">
             <SearchForm />
             {Searchedcourses.length ? Searchedcourses.map(course => (
-                <Link to={`/course/${course.id}`}>
+                <Link to={`/course/${course.id}`} key={course.id}>
                     <CourseCard course={course} />
                 </Link>
             )) : <NoFound />

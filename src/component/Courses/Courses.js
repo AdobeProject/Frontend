@@ -1,4 +1,3 @@
-import { useParams } from "react-router";
 import FilterSection from "./FilterSection";
 import CourseCard from "./CourseCard";
 import "./style.scss";
@@ -16,7 +15,7 @@ function Courses() {
       <div className="courses-contenet">
         {!!courses.length && <SearchForm />}
         {courses.length ? courses.map(course => (
-          <Link to={`/course/${course.id}`}>
+          <Link to={`/course/${course.id}`} key={course.id}>
             <CourseCard course={course} />
           </Link>
         )) : <NoFound />}

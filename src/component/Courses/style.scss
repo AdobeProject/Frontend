@@ -9,13 +9,18 @@
   justify-content: space-around;
   flex:4;
 
+  a{
+    margin-bottom: 20px;
+  }
+
   .course-main {
     box-shadow: 0 0 1vw #ADADAD;
     padding: 10px;
     margin: 5px;
     background-color: white;
     box-sizing: border-box;
-
+    height: 100%;
+    padding: 5px;
   
   
     .course-title {

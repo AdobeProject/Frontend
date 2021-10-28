@@ -81,7 +81,6 @@ export const getMainCours = (courseId) => (dispatch) => {
     axios.get(`${URL}/course/${courseId}`)
         .then((response) => {
             if (response) {
-                console.log('response.data Course', response.data);
                 dispatch(setMainCourse(response.data.courses[0]))
             } else {
                 setCourses({})
