@@ -21,7 +21,13 @@ function UserPage() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getEnrolledCourse())
+        if(user.userRole==='TEACHER'){
+            
+        
+        }else{
+            dispatch(getEnrolledCourse())
+
+        }
     }, [])
 
 

@@ -71,7 +71,6 @@ export const registerUser = (userData) => (dispatch) => {
     axios.post(`${URL}/user/signup`, userData)
         .then((response) => {
 
-            console.log('response.data', response);
             if (response) {
                 localStorage.setItem('userToken', response.data.token)
                 dispatch(setUser(response.data.userDetails))
@@ -92,7 +91,6 @@ export const changeUserInfo = (userData) => (dispatch) => {
             'Authorization': localStorage.getItem('userToken')
         }
     }).then((response) => {
-        console.log('response responseresponse', response);
         dispatch(setUser(response.data))
     }).catch(err => err)
 }
